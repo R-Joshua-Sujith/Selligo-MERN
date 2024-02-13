@@ -54,7 +54,7 @@ const Home = () => {
   //     try {
   //       setLoading(true);
   //       const response = await axios.get(
-  //         "http://localhost:5000/get-all-category-types"
+  //         "http://api.selligo.in/get-all-category-types"
   //       );
   //       setLoading(false);
   //       setCategoryData(response.data);
@@ -78,7 +78,7 @@ const Home = () => {
         try {
           setLoading(true);
           const response = await axios.get(
-            "http://localhost:5000/category/get-all-category-types"
+            "http://api.selligo.in/category/get-all-category-types"
           );
           setLoading(false);
           setCategoryData(response.data);

@@ -10,7 +10,7 @@ const DownloadTemplate = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/generate-excel/${categoryType}`,
+        `http://api.selligo.in/generate-excel/${categoryType}`,
         {
           responseType: "arraybuffer",
         }

@@ -50,7 +50,7 @@ const Login = () => {
       return;
     } else {
       axios
-        .post("http://localhost:5000/auth/admin-login", {
+        .post("http://api.selligo.in/auth/admin-login", {
           email,
           password,
         })

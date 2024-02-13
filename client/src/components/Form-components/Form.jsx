@@ -36,7 +36,7 @@ const Form = () => {
   const getUserData = async () => {
     setLoading(true);
     await axios
-      .get(`http://localhost:5000/user/api/users/${phone}`)
+      .get(`http://api.selligo.in/user/api/users/${phone}`)
       .then((res) => {
         setLoading(false);
         const existingOrders = JSON.parse(localStorage.getItem("orders"));
@@ -132,7 +132,7 @@ const Form = () => {
                     try {
                       setLoading(true);
                       const response = await axios.get(
-                        `http://localhost:5000/pincode/check-pincode/${zipCode}`
+                        `http://api.selligo.in/pincode/check-pincode/${zipCode}`
                       );
 
                       const pincodeExists = response.data.pincodeExists;
@@ -155,7 +155,7 @@ const Form = () => {
 
                         await axios
                           .post(
-                            `http://localhost:5000/user/api/users/${phone}`,
+                            `http://api.selligo.in/user/api/users/${phone}`,
                             {
                               firstName,
                               lastName,
@@ -242,7 +242,7 @@ const Form = () => {
                   try {
                     setLoading(true);
                     const response = await axios.get(
-                      `http://localhost:5000/pincode/check-pincode/${zipCode}`
+                      `http://api.selligo.in/pincode/check-pincode/${zipCode}`
                     );
 
                     const pincodeExists = response.data.pincodeExists;
@@ -264,7 +264,7 @@ const Form = () => {
                       };
 
                       await axios
-                        .post(`http://localhost:5000/user/api/users/${phone}`, {
+                        .post(`http://api.selligo.in/user/api/users/${phone}`, {
                           firstName,
                           lastName,
                           email,

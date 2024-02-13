@@ -57,7 +57,7 @@ const Contact = () => {
 
         // Make an API request using Axios
         const response = await axios.post(
-          "http://localhost:5000/contact/create",
+          "http://api.selligo.in/contact/create",
           formData
         );
         setLoading(false);

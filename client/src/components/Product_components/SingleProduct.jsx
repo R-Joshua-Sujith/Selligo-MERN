@@ -33,7 +33,7 @@ const SingleProduct = () => {
       try {
         setLoading(true);
         await axios
-          .get(`http://localhost:5000/product/products/${id}`)
+          .get(`http://api.selligo.in/product/products/${id}`)
           .then((response) => {
             setLoading(false);
             setProductData(response.data);
@@ -68,7 +68,7 @@ const SingleProduct = () => {
             const city = localStorage.getItem("selectedCity") || "";
 
             console.log("Total Value:", totalValue);
-            axios.post("http://localhost:5000/abundant/create-abundant-order", {
+            axios.post("http://api.selligo.in/abundant/create-abundant-order", {
               phone,
               city: city,
               options: selectedOptions,
@@ -78,7 +78,7 @@ const SingleProduct = () => {
               },
             });
             if (city) {
-              axios.put(`http://localhost:5000/user/api/users/${email}/city`, {
+              axios.put(`http://api.selligo.in/user/api/users/${email}/city`, {
                 city,
               });
             }
@@ -149,7 +149,7 @@ const SingleProduct = () => {
     try {
       setVerifyLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/promo/check/promocode",
+        "http://api.selligo.in/promo/check/promocode",
         {
           enteredCode: code,
           phone: phone,
@@ -179,7 +179,7 @@ const SingleProduct = () => {
           <div
             className="single-product-sub-container-one"
             style={{
-              backgroundImage: `url(http://localhost:5000/uploads/${encodeURIComponent(
+              backgroundImage: `url(http://api.selligo.in/uploads/${encodeURIComponent(
                 productData.productImage
               )})`,
             }}

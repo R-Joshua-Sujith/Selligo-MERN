@@ -52,15 +52,6 @@ app.get("/", async (req, res) => {
 })
 
 
-cron.schedule('*/9 * * * *', async () => {
-    try {
-        const response = await axios.get('http://localhost:5000/');
-        console.log('API request sent:', response.data);
-    } catch (error) {
-        console.error('Error sending API request:', error);
-    }
-});
-
 app.listen(5000, () => {
     console.log("Backend Server is Running")
 })

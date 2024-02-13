@@ -106,7 +106,7 @@ const ViewProduct = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/category/generate-excel/${categoryType}`,
+        `http://api.selligo.in/category/generate-excel/${categoryType}`,
         {
           responseType: "arraybuffer",
         }
@@ -137,7 +137,7 @@ const ViewProduct = () => {
       }
       setDownloadLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/product/api/products/bulk-download/${categoryType2}`,
+        `http://api.selligo.in/product/api/products/bulk-download/${categoryType2}`,
         { responseType: "blob" }
       );
       setDownloadLoading(false);
@@ -170,7 +170,7 @@ const ViewProduct = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/product/get-all-products?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
+        `http://api.selligo.in/product/get-all-products?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
       );
 
       setData(response.data.data);
@@ -182,7 +182,7 @@ const ViewProduct = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/category/get-all-category-types")
+      .get("http://api.selligo.in/category/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -261,7 +261,7 @@ const ViewProduct = () => {
     try {
       const id = deleteConfirmation.productId;
       await axios
-        .delete(`http://localhost:5000/product/delete-product/${id}`)
+        .delete(`http://api.selligo.in/product/delete-product/${id}`)
         .then((res) => {
           fetchData();
           setDeleteConfirmation({ isOpen: false, productId: null });
@@ -289,7 +289,7 @@ const ViewProduct = () => {
     try {
       setUploadingLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/product/api/products/bulk-upload",
+        "http://api.selligo.in/product/api/products/bulk-upload",
         formData
       );
 

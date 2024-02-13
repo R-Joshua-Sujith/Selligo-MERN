@@ -19,7 +19,7 @@ const GenerateTemplate = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/products/bulk-upload",
+        "http://api.selligo.in/api/products/bulk-upload",
         formData
       );
 
@@ -37,7 +37,7 @@ const GenerateTemplate = () => {
   const handleBulkDownload = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/products/bulk-download/watch",
+        "http://api.selligo.in/api/products/bulk-download/watch",
         { responseType: "blob" }
       );
 

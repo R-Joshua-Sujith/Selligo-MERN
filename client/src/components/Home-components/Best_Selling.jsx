@@ -20,7 +20,7 @@ const Best_Selling = () => {
     try {
       setLoading(true);
       await axios
-        .get(`http://localhost:5000/category/get-all-category-types`)
+        .get(`http://api.selligo.in/category/get-all-category-types`)
         .then((response) => {
           console.log(response.data);
           setCategoryType(response.data[0].category_type);
@@ -33,7 +33,7 @@ const Best_Selling = () => {
   const getProductData = async () => {
     await axios
       .get(
-        `http://localhost:5000/product/best-selling-products/${categoryType}`
+        `http://api.selligo.in/product/best-selling-products/${categoryType}`
       )
       .then((res) => {
         setLoading(false);
@@ -120,7 +120,7 @@ const Best_Selling = () => {
                 <div
                   className="best-selling-product-image-container"
                   style={{
-                    backgroundImage: `url(http://localhost:5000/uploads/${encodeURIComponent(
+                    backgroundImage: `url(http://api.selligo.in/uploads/${encodeURIComponent(
                       item.productImage
                     )})`,
                   }}

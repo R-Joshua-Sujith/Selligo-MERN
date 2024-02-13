@@ -42,7 +42,7 @@ const Section1 = () => {
       try {
         setLoading(true);
         await axios
-          .get(`http://localhost:5000/product/products/${id}`)
+          .get(`http://api.selligo.in/product/products/${id}`)
           .then((response) => {
             setLoading(false);
             setProductData(response.data);
@@ -62,7 +62,7 @@ const Section1 = () => {
       try {
         setLoading(true);
         await axios
-          .get(`http://localhost:5000/category/api/category/${type}`)
+          .get(`http://api.selligo.in/category/api/category/${type}`)
           .then((response) => {
             setLoading(false);
             localStorage.setItem(

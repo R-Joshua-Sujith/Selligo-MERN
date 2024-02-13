@@ -27,7 +27,7 @@ const EditBrand = () => {
   const [Loading, setLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/category/get-all-category-types")
+      .get("http://api.selligo.in/category/get-all-category-types")
       .then((response) => {
         setOptions(response.data);
       })
@@ -40,7 +40,7 @@ const EditBrand = () => {
     try {
       setLoading(true);
       await axios
-        .get(`http://localhost:5000/brand/brands/${id}`)
+        .get(`http://api.selligo.in/brand/brands/${id}`)
         .then((response) => {
           setBrandName(response.data.brandName);
           setBrandImage(response.data.brandImage);
@@ -184,7 +184,7 @@ const EditBrand = () => {
       // Rest of your submit logic
       setEditLoading(true);
       await axios
-        .put(`http://localhost:5000/brand/edit-brand/${id}`, {
+        .put(`http://api.selligo.in/brand/edit-brand/${id}`, {
           brandName,
           brandImage,
           series: cleanedSeries,

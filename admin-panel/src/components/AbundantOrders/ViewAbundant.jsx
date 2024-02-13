@@ -97,7 +97,7 @@ const ViewAbundant = () => {
       const endDate = dateRange[1] ? `&endDate=${dateRange[1]}` : "";
 
       const response = await axios.get(
-        `http://localhost:5000/abundant/get-all-orders?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}${startDate}${endDate}`
+        `http://api.selligo.in/abundant/get-all-orders?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}${startDate}${endDate}`
       );
 
       setData(response.data.data);
@@ -191,7 +191,7 @@ const ViewAbundant = () => {
         setStatusLoading(true);
         // Send a PUT request to update the order status to 'processing'
         await axios.put(
-          `http://localhost:5000/order/api/orders/${selectedOrderId}/processing`
+          `http://api.selligo.in/order/api/orders/${selectedOrderId}/processing`
         );
 
         // Fetch updated data after the status change
@@ -225,7 +225,7 @@ const ViewAbundant = () => {
     try {
       setCancelLoading(true);
       // Send a PUT request to update the order status to 'cancel' and provide the cancellation reason
-      await axios.put(`http://localhost:5000/order/${selectedOrderId}/cancel`, {
+      await axios.put(`http://api.selligo.in/order/${selectedOrderId}/cancel`, {
         cancellationReason,
       });
 
@@ -325,7 +325,7 @@ const ViewAbundant = () => {
       setCompleteLoading(true);
       // Send a POST request to complete the order with file data
       await axios.put(
-        `http://localhost:5000/order/api/orders/${selectedOrderId}/complete`,
+        `http://api.selligo.in/order/api/orders/${selectedOrderId}/complete`,
         formData,
         {
           headers: {
@@ -376,7 +376,7 @@ const ViewAbundant = () => {
     try {
       setExportLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/order/get-all-orders?page=1&pageSize=${totalRows}&search=${searchQuery}${startDate}${endDate}`
+        `http://api.selligo.in/order/get-all-orders?page=1&pageSize=${totalRows}&search=${searchQuery}${startDate}${endDate}`
       );
 
       const ordersData = response.data.data;

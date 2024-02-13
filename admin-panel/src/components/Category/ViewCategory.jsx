@@ -84,7 +84,7 @@ const ViewCategory = () => {
   ];
   const getCategoryData = async () => {
     await axios
-      .get("http://localhost:5000/category/get-all-category-types") // replace with your actual API endpoint
+      .get("http://api.selligo.in/category/get-all-category-types") // replace with your actual API endpoint
       .then((response) => {
         // Set the data
         setData(response.data);
@@ -108,7 +108,7 @@ const ViewCategory = () => {
     try {
       const id = deleteConfirmation.categoryId;
       await axios
-        .delete(`http://localhost:5000/category/delete-category/${id}`)
+        .delete(`http://api.selligo.in/category/delete-category/${id}`)
         .then((res) => {
           toast.info(res.data.message);
           getCategoryData();

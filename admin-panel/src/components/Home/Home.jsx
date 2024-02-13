@@ -23,7 +23,7 @@ const Home = () => {
   const getCount = async () => {
     setLoading(true);
     await axios
-      .get("http://localhost:5000/statistic/documentCounts")
+      .get("http://api.selligo.in/statistic/documentCounts")
       .then((res) => {
         setLoading(false);
         setCount(res.data);

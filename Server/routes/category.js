@@ -110,7 +110,7 @@ router.get('/generate-excel/:categoryType', async (req, res) => {
         const categoryType = req.params.categoryType;
 
         // Make an API call to fetch the category document based on categoryType
-        const response = await axios.get(`http://localhost:5000/category/api/category/${categoryType}`);
+        const response = await axios.get(`http://api.selligo.in/category/api/category/${categoryType}`);
         const category = response.data;
 
         // Check if the category document is empty or undefined

@@ -59,7 +59,7 @@ const ViewPromoCode = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/promo/get-all-promocode?page=${currentPage}&pageSize=${pageSize}`
+        `http://api.selligo.in/promo/get-all-promocode?page=${currentPage}&pageSize=${pageSize}`
       );
       console.log(response.data);
       setData(response.data.data);
@@ -127,7 +127,7 @@ const ViewPromoCode = () => {
     try {
       const id = deleteConfirmation.pincodeId;
       await axios
-        .delete(`http://localhost:5000/promo/delete/promocode/${id}`)
+        .delete(`http://api.selligo.in/promo/delete/promocode/${id}`)
         .then((res) => {
           toast.info(res.data.message);
           setDeleteConfirmation({ isOpen: false, pincodeId: null });
@@ -197,7 +197,7 @@ const ViewPromoCode = () => {
                           // onClick={async () => {
                           //   await axios
                           //     .delete(
-                          //       `http://localhost:5000/delete-pincode/${row._id}`
+                          //       `http://api.selligo.in/delete-pincode/${row._id}`
                           //     )
                           //     .then((res) => {
                           //       toast.info("Deleted Successfully");

@@ -36,7 +36,7 @@ const AddPinCode = () => {
       setLoading(true);
       // Use Axios to add pin code
       const response = await axios.post(
-        "http://localhost:5000/pincode/create/pincode",
+        "http://api.selligo.in/pincode/create/pincode",
         formData
       );
       setLoading(false);

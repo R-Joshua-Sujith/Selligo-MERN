@@ -30,7 +30,7 @@ const Section1 = () => {
     const getProductData = async () => {
       try {
         await axios
-          .get(`http://localhost:5000/products/${id}`)
+          .get(`http://api.selligo.in/products/${id}`)
           .then((response) => {
             console.log(response.data.attributes);
             setAttributes(response.data.attributes);

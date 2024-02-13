@@ -52,7 +52,7 @@ const EditProduct = () => {
     try {
       setLoading(true);
       await axios
-        .get(`http://localhost:5000/product/products/${id}`)
+        .get(`http://api.selligo.in/product/products/${id}`)
         .then((response) => {
           console.log(response.data);
           setLoading(false);
@@ -65,7 +65,7 @@ const EditProduct = () => {
           setOptions(response.data.dynamicFields);
           setBestSelling(response.data.bestSelling);
           setImageUrl(
-            `http://localhost:5000/uploads/${response.data.productImage}`
+            `http://api.selligo.in/uploads/${response.data.productImage}`
           );
         });
     } catch (err) {
@@ -80,7 +80,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/get-all-category-types")
+      .get("http://api.selligo.in/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -92,7 +92,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/brands-category/${categoryType}`)
+      .get(`http://api.selligo.in/brands-category/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setBrandData(response.data);
@@ -105,7 +105,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/series/${brandName}/${categoryType}`)
+      .get(`http://api.selligo.in/series/${brandName}/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setSeriesData(response.data);
@@ -154,7 +154,7 @@ const EditProduct = () => {
       setEditLoading(true);
 
       await axios
-        .put(`http://localhost:5000/product/update-product/${id}`, {
+        .put(`http://api.selligo.in/product/update-product/${id}`, {
           categoryType,
           basePrice,
           variant,
@@ -208,7 +208,7 @@ const EditProduct = () => {
       formData.append("productImage", productImage);
 
       await axios.put(
-        `http://localhost:5000/product/update-product-image/${id}`,
+        `http://api.selligo.in/product/update-product-image/${id}`,
         formData,
         {
           headers: {

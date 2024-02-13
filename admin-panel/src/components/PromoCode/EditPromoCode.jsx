@@ -21,7 +21,7 @@ const EditPromoCode = () => {
       console.log(id);
       try {
         await axios
-          .get(`http://localhost:5000/promo/promoCode/${id}`)
+          .get(`http://api.selligo.in/promo/promoCode/${id}`)
           .then((response) => {
             setCode(response.data.code);
             setValue(response.data.discountAmount);
@@ -39,7 +39,7 @@ const EditPromoCode = () => {
     } else {
       setLoading(true);
       axios
-        .put(`http://localhost:5000/promo/update/promocode/${id}`, {
+        .put(`http://api.selligo.in/promo/update/promocode/${id}`, {
           code: code,
           discountAmount: value,
         })

@@ -30,7 +30,7 @@ const Orders = () => {
   const getOrdersData = async () => {
     setBigLoading(true);
     await axios
-      .get(`http://localhost:5000/order/user-orders/${phone}`)
+      .get(`http://api.selligo.in/order/user-orders/${phone}`)
       .then((res) => {
         setBigLoading(false);
         setOrderData(res.data);
@@ -52,7 +52,7 @@ const Orders = () => {
     }
     setCancelLoading(true);
     await axios
-      .put(`http://localhost:5000/order/${orderID}/cancel`, {
+      .put(`http://api.selligo.in/order/${orderID}/cancel`, {
         cancellationReason,
       })
       .then((res) => {
@@ -80,7 +80,7 @@ const Orders = () => {
 
       // Fetch JSON data from the backend
       const response = await fetch(
-        `http://localhost:5000/order/api/get-invoice-data/${orderId}`
+        `http://api.selligo.in/order/api/get-invoice-data/${orderId}`
       );
       const invoiceData = await response.json();
       setInvoice(invoiceData);

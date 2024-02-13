@@ -33,7 +33,7 @@ const Brand = () => {
         try {
           setLoading(true);
           await axios
-            .get(`http://localhost:5000/brand/brands-category/${decodedUrl}`)
+            .get(`http://api.selligo.in/brand/brands-category/${decodedUrl}`)
             .then((response) => {
               setLoading(false);
               console.log(response.data);

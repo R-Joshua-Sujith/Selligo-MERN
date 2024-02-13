@@ -33,7 +33,7 @@ const ViewSingleProduct = () => {
     const getProductData = async () => {
       try {
         await axios
-          .get(`http://localhost:5000/product/products/${id}`)
+          .get(`http://api.selligo.in/product/products/${id}`)
           .then((response) => {
             setBasePrice(response.data.basePrice);
             setProductImage(response.data.productImage);
@@ -54,7 +54,7 @@ const ViewSingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/get-all-category-types")
+      .get("http://api.selligo.in/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -66,7 +66,7 @@ const ViewSingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/brands-category/${categoryType}`)
+      .get(`http://api.selligo.in/brands-category/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setBrandData(response.data);
@@ -79,7 +79,7 @@ const ViewSingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/series/${brandName}/${categoryType}`)
+      .get(`http://api.selligo.in/series/${brandName}/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setSeriesData(response.data);
