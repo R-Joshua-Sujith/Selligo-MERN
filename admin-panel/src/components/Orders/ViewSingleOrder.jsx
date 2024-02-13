@@ -18,7 +18,7 @@ const ViewSingleOrder = () => {
   const { id } = useParams();
   const getOrderData = async () => {
     await axios
-      .get(`http://api.selligo.in/order/single-orders/${id}`)
+      .get(`https://api.selligo.in/order/single-orders/${id}`)
       .then((res) => {
         console.log(res.data);
         setOrderData(res.data);
@@ -86,7 +86,7 @@ Options: ${optionsList.join(", ")}`;
 
   const downloadBill = async () => {
     await axios
-      .get(`http://api.selligo.in/order/api/orders/${id}/documents`)
+      .get(`https://api.selligo.in/order/api/orders/${id}/documents`)
       .then((res) => {
         console.log(res.data);
         const newWindow = window.open();
@@ -113,7 +113,7 @@ Options: ${optionsList.join(", ")}`;
 
       // Fetch JSON data from the backend
       const response = await fetch(
-        `http://api.selligo.in/order/api/get-invoice-data/${id}`
+        `https://api.selligo.in/order/api/get-invoice-data/${id}`
       );
       const invoiceData = await response.json();
       setInvoice(invoiceData);

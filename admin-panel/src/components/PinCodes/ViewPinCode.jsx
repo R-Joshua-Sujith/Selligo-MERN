@@ -65,7 +65,7 @@ const ViewPinCode = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://api.selligo.in/pincode/get-all-pincodes?page=${currentPage}&pageSize=${pageSize}`
+        `https://api.selligo.in/pincode/get-all-pincodes?page=${currentPage}&pageSize=${pageSize}`
       );
       console.log(response.data);
       setData(response.data.data);
@@ -133,7 +133,7 @@ const ViewPinCode = () => {
     try {
       const id = deleteConfirmation.pincodeId;
       await axios
-        .delete(`http://api.selligo.in/pincode/delete-pincode/${id}`)
+        .delete(`https://api.selligo.in/pincode/delete-pincode/${id}`)
         .then((res) => {
           toast.info(res.data.message);
           setDeleteConfirmation({ isOpen: false, pincodeId: null });
@@ -203,7 +203,7 @@ const ViewPinCode = () => {
                           // onClick={async () => {
                           //   await axios
                           //     .delete(
-                          //       `http://api.selligo.in/delete-pincode/${row._id}`
+                          //       `https://api.selligo.in/delete-pincode/${row._id}`
                           //     )
                           //     .then((res) => {
                           //       toast.info("Deleted Successfully");

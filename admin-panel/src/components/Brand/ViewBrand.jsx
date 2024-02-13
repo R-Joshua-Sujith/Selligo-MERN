@@ -84,7 +84,7 @@ const ViewBrand = () => {
   ];
   const getProduct = async () => {
     await axios
-      .get("http://api.selligo.in/brand/brands") // replace with your actual API endpoint
+      .get("https://api.selligo.in/brand/brands") // replace with your actual API endpoint
       .then((response) => {
         // Set the data
         setData(response.data);
@@ -101,7 +101,7 @@ const ViewBrand = () => {
   // const deleteBrand = async (id) => {
   //   try {
   //     await axios
-  //       .delete(`http://api.selligo.in/delete-brand/${id}`)
+  //       .delete(`https://api.selligo.in/delete-brand/${id}`)
   //       .then((res) => {
   //         alert(res.data.message);
   //       });
@@ -118,7 +118,7 @@ const ViewBrand = () => {
     try {
       const id = deleteConfirmation.brandId;
       await axios
-        .delete(`http://api.selligo.in/brand/delete-brand/${id}`)
+        .delete(`https://api.selligo.in/brand/delete-brand/${id}`)
         .then((res) => {
           getProduct();
           toast.info(res.data.message);

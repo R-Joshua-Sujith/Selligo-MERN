@@ -21,7 +21,7 @@ const AddBrand = () => {
 
   useEffect(() => {
     axios
-      .get("http://api.selligo.in/get-all-category-types")
+      .get("https://api.selligo.in/get-all-category-types")
       .then((response) => {
         setOptions(response.data);
       })
@@ -161,7 +161,7 @@ const AddBrand = () => {
     //     return;
     //   }
 
-    //   await axios.post("http://api.selligo.in/add-brand", {
+    //   await axios.post("https://api.selligo.in/add-brand", {
     //     brandName,
     //     brandImage,
     //     categoryType: checkedItems,

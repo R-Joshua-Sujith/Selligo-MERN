@@ -21,7 +21,7 @@ const AddBrand = () => {
 
   useEffect(() => {
     axios
-      .get("http://api.selligo.in/category/get-all-category-types")
+      .get("https://api.selligo.in/category/get-all-category-types")
       .then((response) => {
         const initialSeriesState = {};
         response.data.forEach((category) => {
@@ -156,7 +156,7 @@ const AddBrand = () => {
 
       // Rest of your submit logic
       await axios
-        .post("http://api.selligo.in/brand/add-brand", {
+        .post("https://api.selligo.in/brand/add-brand", {
           brandName,
           brandImage,
           series,

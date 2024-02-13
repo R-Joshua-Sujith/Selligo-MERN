@@ -19,7 +19,7 @@ const AddPromoCode = () => {
     } else {
       setLoading(true);
       await axios
-        .post("http://api.selligo.in/promo/create/promocode", {
+        .post("https://api.selligo.in/promo/create/promocode", {
           code: code,
           discountAmount: value,
         })

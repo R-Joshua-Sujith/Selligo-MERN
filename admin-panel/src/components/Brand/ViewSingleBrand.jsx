@@ -21,7 +21,7 @@ const ViewSingleBrand = () => {
 
   useEffect(() => {
     axios
-      .get("http://api.selligo.in/category/get-all-category-types")
+      .get("https://api.selligo.in/category/get-all-category-types")
       .then((response) => {
         setOptions(response.data);
       })
@@ -34,7 +34,7 @@ const ViewSingleBrand = () => {
     const getBrandData = async () => {
       try {
         await axios
-          .get(`http://api.selligo.in/brand/brands/${id}`)
+          .get(`https://api.selligo.in/brand/brands/${id}`)
           .then((response) => {
             setBrandName(response.data.brandName);
             setBrandImage(response.data.brandImage);

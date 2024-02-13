@@ -168,7 +168,7 @@ const AddCategory = () => {
       }
 
       await axios
-        .post("http://api.selligo.in/add-category", {
+        .post("https://api.selligo.in/add-category", {
           category_type,
           attributes,
           sections,

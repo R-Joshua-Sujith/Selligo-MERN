@@ -173,7 +173,7 @@ const AddCategory = () => {
       }
       setLoadinng(true);
       await axios
-        .post("http://api.selligo.in/category/add-category", {
+        .post("https://api.selligo.in/category/add-category", {
           category_type,
           attributes,
           sections,

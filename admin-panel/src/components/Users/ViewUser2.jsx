@@ -68,7 +68,7 @@ const ViewUser2 = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://api.selligo.in/user/get-all-userss?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
+        `https://api.selligo.in/user/get-all-userss?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
       );
       console.log(response.data);
       setData(response.data.data);
@@ -97,7 +97,7 @@ const ViewUser2 = () => {
     try {
       setExportLoading(true);
       const response = await axios.get(
-        `http://api.selligo.in/user/get-all-users?page=1&pageSize=${totalRows}&search=${searchQuery}`
+        `https://api.selligo.in/user/get-all-users?page=1&pageSize=${totalRows}&search=${searchQuery}`
       );
 
       const usersData = response.data.data;

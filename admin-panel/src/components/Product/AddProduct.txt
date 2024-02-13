@@ -54,7 +54,7 @@ const AddProduct = () => {
   };
   useEffect(() => {
     axios
-      .get("http://api.selligo.in/get-all-category-types")
+      .get("https://api.selligo.in/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -67,7 +67,7 @@ const AddProduct = () => {
   useEffect(() => {
     axios
       .get(
-        `http://api.selligo.in/brands-category/${categoryType}`
+        `https://api.selligo.in/brands-category/${categoryType}`
       )
       .then((response) => {
         console.log(response.data);
@@ -82,7 +82,7 @@ const AddProduct = () => {
   useEffect(() => {
     axios
       .get(
-        `http://api.selligo.in/series/${brandName}/${categoryType}`
+        `https://api.selligo.in/series/${brandName}/${categoryType}`
       )
       .then((response) => {
         console.log(response.data);
@@ -96,7 +96,7 @@ const AddProduct = () => {
   useEffect(() => {
     axios
       .get(
-        `http://api.selligo.in/models/${categoryType}/${brandName}/${seriesName}`
+        `https://api.selligo.in/models/${categoryType}/${brandName}/${seriesName}`
       )
       .then((response) => {
         console.log(response.data);
@@ -109,7 +109,7 @@ const AddProduct = () => {
   }, [categoryType, brandName, seriesName]);
   useEffect(() => {
     axios
-      .get(`http://api.selligo.in/api/category/${categoryType}`)
+      .get(`https://api.selligo.in/api/category/${categoryType}`)
       .then((response) => {
         const category = response.data;
         let dummyData = [];
@@ -203,7 +203,7 @@ const AddProduct = () => {
       formData.append("dynamicFields", JSON.stringify(options));
       await axios
         .post(
-          "http://api.selligo.in/create-products",
+          "https://api.selligo.in/create-products",
           formData,
           {
             headers: {

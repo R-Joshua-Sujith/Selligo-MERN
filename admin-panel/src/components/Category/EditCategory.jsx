@@ -26,7 +26,7 @@ const EditCategory = () => {
     try {
       setLoading(true);
       await axios
-        .get(`http://api.selligo.in/category/get-category/${id}`)
+        .get(`https://api.selligo.in/category/get-category/${id}`)
         .then((response) => {
           setLoading(false);
           setCategoryName(response.data.category_type);
@@ -187,7 +187,7 @@ const EditCategory = () => {
       }
       setEditLoading(true);
       await axios
-        .put(`http://api.selligo.in/category/updateCategory/${id}`, {
+        .put(`https://api.selligo.in/category/updateCategory/${id}`, {
           category_type,
           attributes,
           sections,

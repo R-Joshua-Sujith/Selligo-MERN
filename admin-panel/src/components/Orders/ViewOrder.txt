@@ -52,7 +52,7 @@ const ViewOrder = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://api.selligo.in/get-all-orders?page=${currentPage}&pageSize=${pageSize}`
+        `https://api.selligo.in/get-all-orders?page=${currentPage}&pageSize=${pageSize}`
       );
       console.log(response.data);
       setData(response.data.data);
@@ -161,7 +161,7 @@ const ViewOrder = () => {
       try {
         // Send a PUT request to update the order status to 'processing'
         await axios.put(
-          `http://api.selligo.in/api/orders/${selectedOrderId}/processing`
+          `https://api.selligo.in/api/orders/${selectedOrderId}/processing`
         );
 
         // Fetch updated data after the status change
@@ -192,7 +192,7 @@ const ViewOrder = () => {
     }
     try {
       // Send a PUT request to update the order status to 'cancel' and provide the cancellation reason
-      await axios.put(`http://api.selligo.in/${selectedOrderId}/cancel`, {
+      await axios.put(`https://api.selligo.in/${selectedOrderId}/cancel`, {
         cancellationReason,
       });
 
@@ -244,7 +244,7 @@ const ViewOrder = () => {
     try {
       // Send a POST request to complete the order with file data
       await axios.put(
-        `http://api.selligo.in/api/orders/${selectedOrderId}/complete`,
+        `https://api.selligo.in/api/orders/${selectedOrderId}/complete`,
         formData,
         {
           headers: {
@@ -277,7 +277,7 @@ const ViewOrder = () => {
 
       // Fetch JSON data from the backend
       const response = await fetch(
-        `http://api.selligo.in/api/get-invoice-data/${orderId}`
+        `https://api.selligo.in/api/get-invoice-data/${orderId}`
       );
       const invoiceData = await response.json();
       console.log(invoiceData);

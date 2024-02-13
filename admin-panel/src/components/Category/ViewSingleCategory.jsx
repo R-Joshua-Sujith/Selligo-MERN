@@ -22,7 +22,7 @@ const ViewSingleCategory = () => {
       try {
         setLoading(true);
         await axios
-          .get(`http://api.selligo.in/category/get-category/${id}`)
+          .get(`https://api.selligo.in/category/get-category/${id}`)
           .then((response) => {
             setLoading(false);
             setCategoryName(response.data.category_type);

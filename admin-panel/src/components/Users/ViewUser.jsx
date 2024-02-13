@@ -105,7 +105,7 @@ const ViewUser = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://api.selligo.in/user/get-all-userss?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
+        `https://api.selligo.in/user/get-all-userss?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
       );
       setData(response.data.data);
       setTotalRows(response.data.totalRows);
@@ -189,7 +189,7 @@ const ViewUser = () => {
     try {
       setExportLoading(true);
       const response = await axios.get(
-        `http://api.selligo.in/user/get-all-users?page=1&pageSize=${totalRows}&search=${searchQuery}`
+        `https://api.selligo.in/user/get-all-users?page=1&pageSize=${totalRows}&search=${searchQuery}`
       );
 
       const usersData = response.data.data;
@@ -254,7 +254,7 @@ const ViewUser = () => {
     try {
       const id = deleteConfirmation.userId;
       await axios
-        .delete(`http://api.selligo.in/user/delete/users/${id}`)
+        .delete(`https://api.selligo.in/user/delete/users/${id}`)
         .then((res) => {
           fetchData();
           setDeleteConfirmation({ isOpen: false, userId: null });

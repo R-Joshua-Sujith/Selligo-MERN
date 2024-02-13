@@ -22,7 +22,7 @@ const EditPinCode = () => {
       try {
         setPinCodeLoading(true);
         await axios
-          .get(`http://api.selligo.in/pincode/get-pincode/${id}`)
+          .get(`https://api.selligo.in/pincode/get-pincode/${id}`)
           .then((response) => {
             setPinCodeLoading(false);
             setStateName(response.data.stateName);
@@ -59,7 +59,7 @@ const EditPinCode = () => {
       setLoading(true);
       // Use Axios to add pin code
       const response = await axios.put(
-        `http://api.selligo.in/pincode/update-pincode/${id}`,
+        `https://api.selligo.in/pincode/update-pincode/${id}`,
         formData
       );
       setLoading(false);
