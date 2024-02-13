@@ -32,7 +32,7 @@ const HomePage = () => {
       dispatch({ type: "changeCity", newCity: city });
       setCityModalOpen(false);
       if (phone) {
-        axios.put(`http://api.selligo.in/user/api/users/${phone}/city`, {
+        axios.put(`https://api.selligo.in/user/api/users/${phone}/city`, {
           city,
         });
       }
@@ -42,7 +42,7 @@ const HomePage = () => {
   const getCityData = async () => {
     setLoading(true);
     await axios
-      .get("http://api.selligo.in/pincode/api/cityNames")
+      .get("https://api.selligo.in/pincode/api/cityNames")
       .then((res) => {
         setLoading(false);
         setCity(res.data);
@@ -64,7 +64,7 @@ const HomePage = () => {
       try {
         if (phone) {
           const response = await axios.get(
-            `http://api.selligo.in/user/api/users/${phone}/city`
+            `https://api.selligo.in/user/api/users/${phone}/city`
           );
           if (response.data.city === "") {
             setTimeout(() => {

@@ -79,7 +79,7 @@ const Form2 = () => {
 
       setLoading(true);
       await axios
-        .post("http://api.selligo.in/order/create-order", {
+        .post("https://api.selligo.in/order/create-order", {
           updatedOrderDetails,
         })
         .then((response) => {

@@ -25,7 +25,7 @@ const Profile = () => {
   const getUserData = async () => {
     setLoading(true);
     await axios
-      .get(`http://api.selligo.in/user/api/users/${phone}`)
+      .get(`https://api.selligo.in/user/api/users/${phone}`)
       .then((res) => {
         console.log(res.data);
         setLoading(false);
@@ -116,14 +116,14 @@ const Profile = () => {
                       try {
                         setSaveLoading(true);
                         const response = await axios.get(
-                          `http://api.selligo.in/pincode/check-pincode/${zipCode}`
+                          `https://api.selligo.in/pincode/check-pincode/${zipCode}`
                         );
 
                         const pincodeExists = response.data.pincodeExists;
                         if (pincodeExists) {
                           axios
                             .post(
-                              `http://api.selligo.in/user/api/users/${phone}`,
+                              `https://api.selligo.in/user/api/users/${phone}`,
                               {
                                 firstName,
                                 lastName,

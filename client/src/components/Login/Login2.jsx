@@ -35,7 +35,7 @@ const Login2 = () => {
     } else {
       setLoading(true);
       await axios
-        .post("http://api.selligo.in/user/send-sms", {
+        .post("https://api.selligo.in/user/send-sms", {
           mobileNumber: phone,
         })
         .then((res) => {
@@ -58,7 +58,7 @@ const Login2 = () => {
     } else {
       setLoading2(true);
       await axios
-        .post("http://api.selligo.in/user/sms-login", {
+        .post("https://api.selligo.in/user/sms-login", {
           phone: phone,
           otp,
         })

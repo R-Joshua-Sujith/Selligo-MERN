@@ -45,7 +45,7 @@ const Product = () => {
         try {
           setLoading(true);
           await axios
-            .get(`http://api.selligo.in/product/get-products/${type}/${brand}`)
+            .get(`https://api.selligo.in/product/get-products/${type}/${brand}`)
             .then((response) => {
               setProductData(response.data);
               sessionStorage.setItem(
@@ -118,7 +118,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get(`http://api.selligo.in/brand/series/${brand}/${type}`)
+      .get(`https://api.selligo.in/brand/series/${brand}/${type}`)
       .then((response) => {
         console.log(response.data);
         setSeriesData(response.data);
@@ -131,7 +131,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get(`http://api.selligo.in/brand/models/${type}/${brand}/${seriesName}`)
+      .get(`https://api.selligo.in/brand/models/${type}/${brand}/${seriesName}`)
       .then((response) => {
         console.log(response.data);
         setModelData(response.data);
@@ -296,7 +296,7 @@ const Product = () => {
                 <div
                   className="product-container-items-image"
                   style={{
-                    backgroundImage: `url(http://api.selligo.in/uploads/${encodeURIComponent(
+                    backgroundImage: `url(https://api.selligo.in/uploads/${encodeURIComponent(
                       item.productImage
                     )})`,
                   }}

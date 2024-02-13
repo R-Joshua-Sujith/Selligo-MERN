@@ -33,7 +33,7 @@ const SingleProduct = () => {
       try {
         setLoading(true);
         await axios
-          .get(`http://api.selligo.in/product/products/${id}`)
+          .get(`https://api.selligo.in/product/products/${id}`)
           .then((response) => {
             setLoading(false);
             setProductData(response.data);
@@ -68,17 +68,20 @@ const SingleProduct = () => {
             const city = localStorage.getItem("selectedCity") || "";
 
             console.log("Total Value:", totalValue);
-            axios.post("http://api.selligo.in/abundant/create-abundant-order", {
-              phone,
-              city: city,
-              options: selectedOptions,
-              productDetails: {
-                productName: `${response.data.model} ${response.data.variant}`,
-                price: totalValue + response.data.basePrice,
-              },
-            });
+            axios.post(
+              "https://api.selligo.in/abundant/create-abundant-order",
+              {
+                phone,
+                city: city,
+                options: selectedOptions,
+                productDetails: {
+                  productName: `${response.data.model} ${response.data.variant}`,
+                  price: totalValue + response.data.basePrice,
+                },
+              }
+            );
             if (city) {
-              axios.put(`http://api.selligo.in/user/api/users/${email}/city`, {
+              axios.put(`https://api.selligo.in/user/api/users/${email}/city`, {
                 city,
               });
             }
@@ -149,7 +152,7 @@ const SingleProduct = () => {
     try {
       setVerifyLoading(true);
       const response = await axios.post(
-        "http://api.selligo.in/promo/check/promocode",
+        "https://api.selligo.in/promo/check/promocode",
         {
           enteredCode: code,
           phone: phone,
@@ -179,7 +182,7 @@ const SingleProduct = () => {
           <div
             className="single-product-sub-container-one"
             style={{
-              backgroundImage: `url(http://api.selligo.in/uploads/${encodeURIComponent(
+              backgroundImage: `url(https://api.selligo.in/uploads/${encodeURIComponent(
                 productData.productImage
               )})`,
             }}

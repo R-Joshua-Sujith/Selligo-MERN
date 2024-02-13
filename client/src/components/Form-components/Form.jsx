@@ -36,7 +36,7 @@ const Form = () => {
   const getUserData = async () => {
     setLoading(true);
     await axios
-      .get(`http://api.selligo.in/user/api/users/${phone}`)
+      .get(`https://api.selligo.in/user/api/users/${phone}`)
       .then((res) => {
         setLoading(false);
         const existingOrders = JSON.parse(localStorage.getItem("orders"));
@@ -132,7 +132,7 @@ const Form = () => {
                     try {
                       setLoading(true);
                       const response = await axios.get(
-                        `http://api.selligo.in/pincode/check-pincode/${zipCode}`
+                        `https://api.selligo.in/pincode/check-pincode/${zipCode}`
                       );
 
                       const pincodeExists = response.data.pincodeExists;
@@ -155,7 +155,7 @@ const Form = () => {
 
                         await axios
                           .post(
-                            `http://api.selligo.in/user/api/users/${phone}`,
+                            `https://api.selligo.in/user/api/users/${phone}`,
                             {
                               firstName,
                               lastName,
@@ -242,7 +242,7 @@ const Form = () => {
                   try {
                     setLoading(true);
                     const response = await axios.get(
-                      `http://api.selligo.in/pincode/check-pincode/${zipCode}`
+                      `https://api.selligo.in/pincode/check-pincode/${zipCode}`
                     );
 
                     const pincodeExists = response.data.pincodeExists;
@@ -264,15 +264,18 @@ const Form = () => {
                       };
 
                       await axios
-                        .post(`http://api.selligo.in/user/api/users/${phone}`, {
-                          firstName,
-                          lastName,
-                          email,
-                          addPhone,
-                          address,
-                          zipCode,
-                          city,
-                        })
+                        .post(
+                          `https://api.selligo.in/user/api/users/${phone}`,
+                          {
+                            firstName,
+                            lastName,
+                            email,
+                            addPhone,
+                            address,
+                            zipCode,
+                            city,
+                          }
+                        )
                         .then((res) => {
                           setLoading(false);
                           console.log("data saved");

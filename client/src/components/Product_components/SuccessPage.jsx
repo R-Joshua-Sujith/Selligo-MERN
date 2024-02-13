@@ -24,7 +24,7 @@ const SuccessPage = () => {
       try {
         setLoading(true);
         await axios
-          .get(`http://api.selligo.in/product/products/${id}`)
+          .get(`https://api.selligo.in/product/products/${id}`)
           .then((response) => {
             setLoading(false);
             console.log(response.data);
@@ -51,7 +51,7 @@ const SuccessPage = () => {
           <div
             className="single-product-sub-container-one"
             style={{
-              backgroundImage: `url(http://api.selligo.in/uploads/${encodeURIComponent(
+              backgroundImage: `url(https://api.selligo.in/uploads/${encodeURIComponent(
                 productData.productImage
               )})`,
             }}
