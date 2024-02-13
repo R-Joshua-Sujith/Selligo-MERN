@@ -1,0 +1,571 @@
+import React from "react";
+import Navigation from "../RepeatableComponents/Navigation";
+import AddIcon from "@mui/icons-material/Add";
+import Button from "@mui/material/Button";
+
+import axios from "axios";
+import { useState, useEffect, useRef } from "react";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate, useLocation } from "react-router-dom";
+import { DataGrid } from "@mui/x-data-grid";
+import { Box, Pagination } from "@mui/material";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import SearchIcon from "@mui/icons-material/Search";
+import BigLoader from "../Loader/BigLoader";
+import { Modal, Typography } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+
+import "./ViewProduct.css";
+
+const DeleteConfirmationModal = ({ isOpen, handleClose, handleDelete }) => {
+  return (
+    <Modal open={isOpen} onClose={handleClose}>
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: 300,
+          bgcolor: "background.paper",
+          boxShadow: 24,
+          p: 4,
+        }}
+      >
+        <Typography variant="h6" component="div" gutterBottom>
+          Are you sure you want to delete?
+        </Typography>
+        <Button onClick={handleDelete} variant="contained" sx={{ mr: 2 }}>
+          Yes
+        </Button>
+        <Button onClick={handleClose} variant="contained">
+          No
+        </Button>
+      </Box>
+    </Modal>
+  );
+};
+
+const ViewProduct = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [file, setFile] = useState(null);
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [totalRows, setTotalRows] = useState(0);
+  const [categoryType, setCategoryType] = useState("");
+  const [categoryType2, setCategoryType2] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [categoryData, setCategoryData] = useState([]);
+  // Add this to your existing state variables
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const [uploadingLoading, setUploadingLoading] = useState(false);
+  const [downloadLoading, setDownloadLoading] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState({
+    isOpen: false,
+    productId: null,
+  });
+
+  const fileInputRef = useRef(null);
+
+  const updateUrl = ({ page, pageSize }) => {
+    const newUrl = `?page=${page}&pageSize=${pageSize}`;
+    window.history.pushState({}, "", newUrl);
+  };
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+    setCurrentPage(1);
+    updateUrl({ page: 1, pageSize });
+  };
+
+  const generateExcelTemplate = async () => {
+    if (categoryType === "") {
+      toast.warning("Please select a category");
+      return;
+    }
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `https://sellify-backend.onrender.com/category/generate-excel/${categoryType}`,
+        {
+          responseType: "arraybuffer",
+        }
+      );
+
+      const blob = new Blob([response.data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "excel_template.xlsx";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error generating Excel template:", error.message);
+      setLoading(false);
+    }
+  };
+
+  const handleBulkDownload = async () => {
+    try {
+      if (categoryType2 === "") {
+        toast.warning("Please select a category");
+        return;
+      }
+      setDownloadLoading(true);
+      const response = await axios.get(
+        `https://sellify-backend.onrender.com/product/api/products/bulk-download/${categoryType2}`,
+        { responseType: "blob" }
+      );
+      setDownloadLoading(false);
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "bulk_download.xlsx");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      setDownloadLoading(false);
+      console.error("Error downloading file:", error);
+      toast.warning("An error occurred. Please try again later.");
+    }
+  };
+
+  const handlePageChange = (event, newPage) => {
+    setCurrentPage(newPage);
+    updateUrl({ page: newPage, pageSize });
+  };
+
+  const handlePageSizeSelectChange = (event) => {
+    const newPageSize = parseInt(event.target.value, 10);
+    setPageSize(newPageSize);
+    setCurrentPage(1); // Reset to page 1 when changing page size
+    updateUrl({ page: 1, pageSize: newPageSize });
+  };
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://sellify-backend.onrender.com/product/get-all-products?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
+      );
+
+      setData(response.data.data);
+      setTotalRows(response.data.totalRows);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://sellify-backend.onrender.com/category/get-all-category-types"
+      )
+      .then((response) => {
+        console.log(response.data);
+        setCategoryData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Read pagination data from URL on component mount
+    const params = new URLSearchParams(window.location.search);
+    const page = parseInt(params.get("page"), 10) || 1;
+    const size = parseInt(params.get("pageSize"), 10) || 10;
+
+    setCurrentPage(page);
+    setPageSize(size);
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [currentPage, pageSize, searchQuery]);
+
+  const columns = [
+    {
+      field: "categoryType",
+      headerName: "Category",
+      width: 150,
+    },
+    {
+      field: "brandName",
+      headerName: "Brand",
+      width: 150,
+    },
+    {
+      field: "seriesName",
+      headerName: "Series",
+      width: 150,
+    },
+    {
+      field: "model",
+      headerName: "Model",
+      width: 150,
+    },
+    {
+      field: "variant",
+      headerName: "Variant",
+      width: 150,
+    },
+    {
+      field: "basePrice",
+      headerName: "Base Price",
+      width: 150,
+    },
+    {
+      field: "actions",
+      headerName: "Actions",
+      width: 150,
+      renderCell: (params) => (
+        <div className="icon-container">
+          <VisibilityIcon
+          // onClick={() => {
+          //   navigate(`/view-product/${params.row._id}`);
+          // }}
+          />
+        </div>
+      ),
+    },
+  ];
+
+  const deleteProduct = (id) => {
+    setDeleteConfirmation({ isOpen: true, productId: id });
+  };
+
+  const confirmDelete = async () => {
+    try {
+      const id = deleteConfirmation.productId;
+      await axios
+        .delete(
+          `https://sellify-backend.onrender.com/product/delete-product/${id}`
+        )
+        .then((res) => {
+          fetchData();
+          setDeleteConfirmation({ isOpen: false, productId: null });
+          toast.info(res.data.message);
+        });
+    } catch (err) {
+      setDeleteConfirmation({ isOpen: false, productId: null });
+      toast.info(err.response.data.error);
+    }
+  };
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleUpload = async () => {
+    if (!file) {
+      toast.warning("Please choose a file to upload.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      setUploadingLoading(true);
+      const response = await axios.post(
+        "https://sellify-backend.onrender.com/product/api/products/bulk-upload",
+        formData
+      );
+
+      if (response.status === 200) {
+        setUploadingLoading(false);
+        setFile(null);
+        fileInputRef.current.value = null;
+        toast.success("File uploaded successfully!");
+      } else {
+        setUploadingLoading(false);
+        toast.error("File upload failed. Please try again.");
+      }
+    } catch (error) {
+      setUploadingLoading(false);
+      console.error("Error uploading file:", error);
+      toast.error("An error occurred. Please try again later.");
+    }
+  };
+
+  return (
+    <div className="view-products-container">
+      <Navigation />
+
+      <div className="view-products-sub-container">
+        <h1 className="view-heading">Products Section</h1>
+        <div>
+          <div className="view-products-header-container">
+            <div>
+              <Select
+                size="small"
+                value={categoryType}
+                onChange={(e) => setCategoryType(e.target.value)}
+                displayEmpty
+                inputProps={{ "aria-label": "Select Category" }}
+                sx={{ marginRight: 2, padding: 0, fontSize: 12, mb: 2 }}
+              >
+                <MenuItem value="" disabled>
+                  Select Category
+                </MenuItem>
+                {categoryData.map((item) => (
+                  <MenuItem key={item.category_type} value={item.category_type}>
+                    {item.category_type}
+                  </MenuItem>
+                ))}
+              </Select>
+              <Button
+                variant="contained"
+                onClick={generateExcelTemplate}
+                disabled={loading}
+                sx={{
+                  backgroundColor: "#5644c4",
+                  padding: 1,
+                  fontSize: 10,
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "#5644c4",
+                  },
+                }}
+              >
+                {loading ? "Generating..." : "Generate Excel Template"}
+              </Button>
+            </div>
+            <div>
+              <input
+                className="inputfile"
+                type="file"
+                name="file"
+                onChange={handleFileChange}
+                ref={fileInputRef}
+              />
+              <Button
+                variant="contained"
+                disabled={uploadingLoading}
+                onClick={handleUpload}
+                sx={{
+                  backgroundColor: "#5644c4",
+                  padding: 1,
+                  fontSize: 10,
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "#5644c4",
+                  },
+                }}
+              >
+                {uploadingLoading ? "Uploading..." : "Bulk Upload Products"}
+              </Button>
+            </div>
+            <div>
+              <Select
+                size="small"
+                value={categoryType2}
+                onChange={(e) => setCategoryType2(e.target.value)}
+                displayEmpty
+                inputProps={{ "aria-label": "Select Category" }}
+                sx={{ marginRight: 2, mb: 2, padding: 0, fontSize: 12 }}
+              >
+                <MenuItem value="" disabled>
+                  Select Category
+                </MenuItem>
+                {categoryData.map((item) => (
+                  <MenuItem key={item.category_type} value={item.category_type}>
+                    {item.category_type}
+                  </MenuItem>
+                ))}
+              </Select>
+              <Button
+                variant="contained"
+                onClick={handleBulkDownload}
+                disabled={downloadLoading}
+                sx={{
+                  backgroundColor: "#5644c4",
+                  padding: 1,
+                  fontSize: 10,
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "#5644c4",
+                  },
+                }}
+              >
+                {downloadLoading
+                  ? "Generating..."
+                  : "Download Entire Product Data"}
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="view-products-header-container-two">
+          <div className="view-products-header-container-two-sub">
+            <Button
+              variant="contained"
+              startIcon={<AddIcon />}
+              onClick={() => {
+                navigate("/add-product");
+              }}
+              sx={{
+                mr: 2,
+                backgroundColor: "#5644c4",
+                padding: 1,
+                fontSize: 10,
+                "&:hover": {
+                  backgroundColor: "white",
+                  color: "#5644c4",
+                },
+              }}
+            >
+              Create new entry
+            </Button>
+            <TextField
+              size="small"
+              sx={{ mt: 2 }}
+              label="Search"
+              variant="outlined"
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              style={{ marginBottom: "16px" }}
+            />
+          </div>
+        </div>
+
+        <Box>
+          <div
+            className="table-product-container"
+            sx={{ height: "440px", width: "100%", mt: 0, overflowY: "auto" }}
+          >
+            <table className="responsive-product-table">
+              <thead>
+                <tr>
+                  {columns.map((column) => (
+                    <th
+                      key={column.field}
+                      sx={{
+                        fontSize: 14, // Adjust the font size as needed
+                      }}
+                    >
+                      {column.headerName}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((row) => (
+                  <tr key={row._id}>
+                    <td>{row.categoryType}</td>
+                    <td>{row.brandName}</td>
+                    <td>{row.seriesName}</td>
+                    <td>{row.model}</td>
+                    <td>{row.variant}</td>
+                    <td>{row.basePrice}</td>
+                    <td
+                      sx={{
+                        pb: 0.8,
+                        fontSize: 20, // Adjust the font size as needed
+                        height: "15px", // Adjust the height as needed
+                      }}
+                    >
+                      <div className="icon-container">
+                        <VisibilityIcon
+                          sx={{
+                            height: "15px", // Adjust the height as needed
+                          }}
+                          onClick={() => {
+                            navigate(`/view-product/${row._id}`);
+                          }}
+                        />
+                        <EditIcon
+                          sx={{
+                            height: "15px", // Adjust the height as needed
+                          }}
+                          onClick={() => {
+                            navigate(`/edit-product/${row._id}`);
+                          }}
+                        />
+                        <DeleteIcon
+                          sx={{
+                            height: "15px", // Adjust the height as needed
+                          }}
+                          onClick={() => {
+                            deleteProduct(row._id);
+                          }}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="pagination-container">
+            <Pagination
+              count={Math.ceil(totalRows / pageSize)}
+              page={currentPage}
+              onChange={handlePageChange}
+              size="large"
+              color="primary"
+              showFirstButton
+              showLastButton
+              sx={{ mt: 2 }}
+            />
+            <div className="pagination-sub-container">
+              {" "}
+              <Select
+                value={pageSize}
+                onChange={handlePageSizeSelectChange}
+                variant="outlined"
+                style={{ marginLeft: "10px", height: "40px" }}
+              >
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
+                <MenuItem value={25}>25</MenuItem>
+                <MenuItem value={100}>100</MenuItem>
+              </Select>
+              <br />
+              <span>Total Items {totalRows}</span>
+            </div>
+          </div>
+        </Box>
+        <br />
+      </div>
+      <DeleteConfirmationModal
+        isOpen={deleteConfirmation.isOpen}
+        handleClose={() =>
+          setDeleteConfirmation({ isOpen: false, brandId: null })
+        }
+        handleDelete={confirmDelete}
+      />
+      <ToastContainer />
+    </div>
+  );
+};
+
+export default ViewProduct;

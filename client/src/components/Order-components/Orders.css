@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Redressed&family=Ubuntu:wght@400;700&display=swap");
+
+
+.orders-main-container{
+}
+
+
+.order-heading{
+    margin-top: 20px;
+    margin-left: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.no-orders{
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.orders-container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:50px;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.order{
+    width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.cancel-order-btn{
+    background-color: black;
+    color:white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cancel-order-btn:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.modall{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height:max-content;
+    padding: 25px;
+}
+
+.cancel-order-reason{
+    width: 100%;
+    padding: 5px;
+    height: max-content;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.cancel-order-btn{
+
+}
+
+.cancel-order-btn:disabled{
+  background-color: #5b5757;
+}
+
+
+.cancel-order-close-container{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.cancel-order-close{
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.Invoice-Container{
+   
+    padding: 50px;
+    width: 700px;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 1000px;
+    background-size: cover;
+    color:black;
+    background-color:white;
+
+}
+
+.invoice-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap:150px;
+
+}
+
+.sellify-invoice-logo{
+    background-image: url("../../assets/Home/sellify-logo.png");
+    background-size: contain;
+    width: 500px;
+    height:100px;
+    background-repeat: no-repeat;
+}
+
+.invoice-heading{
+    text-align: center;
+}
+
+.invoice-sellify-address{
+    margin-top: 50px;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.Customer-details{
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.invoice-main-container{
+  margin-top: 1000px;
+}
+
+.Invoice-Main-Container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+:root {
+  --bg-clr: #ead376;
+  --white: #fff;
+  --primary-clr: #2f2929;
+  --secondary-clr: #9747ff;
+}
+
+
+.invoice {
+  width: 700px;
+  height: auto;
+  background: var(--white);
+  padding: 50px 60px;
+  position: relative;
+  margin: 20px auto;
+}
+
+.w_15 {
+  width: 15%;
+}
+
+.w_50 {
+  width: 50%;
+}
+
+.w_55 {
+  width: 55%;
+}
+
+.p_title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.i_logo{
+  background-image: url("../../assets/Home/sellify-logo.png");
+  background-size: contain;
+  width: 200px;
+  height: 70px;
+  background-repeat: no-repeat;
+}
+
+.i_row {
+  display: flex;
+}
+
+.text_right {
+  text-align: right;
+}
+
+.invoice .header .i_row {
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.invoice .header .i_row:last-child {
+  align-items: flex-end;
+}
+
+.invoice .header .i_row .i_logo p {
+  font-family: "Redressed", cursive;
+}
+
+.invoice .header .i_row .i_logo p,
+.invoice .header .i_row .i_title h2 {
+  font-size: 32px;
+  line-height: 38px;
+  color: #9747ff;
+}
+
+.invoice .header .i_row .i_address .p_title span {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.invoice .body .i_table .i_col p {
+  font-weight: 700;
+}
+
+.seller-bg{
+    color:white;
+    background: #9747FF;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.buyer-bg{
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    padding-right: 10px;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+/* .logoo-bg{
+  background-image: url("../../assets/Home/sellify-logo.png");
+  background-size: contain;
+  height: 80px;
+  width: 300px;
+  background-repeat: no-repeat;
+} */
+
+
+.invoice .body .i_table .i_row .i_col {
+  padding: 12px 5px;
+
+}
+
+.invoice .body .i_table .i_table_head .i_row {
+  border: 2px solid;
+  border-color: var(--primary-clr) transparent var(--primary-clr) transparent;
+}
+
+.invoice .body .i_table .i_table_body .i_row:last-child {
+  border-bottom: 2px solid var(--primary-clr);
+}
+
+.invoice .body .i_table .i_table_foot .grand_total_wrap {
+  margin-top: 20px;
+}
+
+.invoice .body .i_table .i_table_foot .grand_total_wrap .grand_total {
+  background: var(--secondary-clr);
+  color: var(--white);
+  padding: 10px 15px;
+}
+
+.invoice .body .i_table .i_table_foot .grand_total_wrap .grand_total p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invoice .footer {
+  margin-top: 30px;
+}
+
+.top_line,
+.bottom_line {
+  width: 25px;
+  height: 175px;
+  z-index: 1;
+  position: absolute;
+  background: var(--secondary-clr);
+}
+
+.top_line {
+  top: 0;
+  left: 0;
+}
+
+.bottom_line {
+  bottom: 0;
+  right: 0;
+}
+
+.top_line:before,
+.bottom_line:before {
+  content: "";
+  position: absolute;
+  border: 13px solid;
+}
+
+.top_line:before {
+  bottom: 0;
+  left: 0px;
+  border-color: transparent var(--white) var(--white) transparent;
+}
+
+.bottom_line:before {
+  top: 0;
+  left: 0px;
+  border-color: var(--white) transparent transparent var(--white);
+}
+
+
+@media(max-width:800px){
+  .order{
+    width: 40%;
+  }
+}
+
+@media(max-width:600px){
+  .orders-container{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:10px;
+    margin-bottom: 50px;
+    margin: 20px auto 50px auto;
+    justify-content: center;
+    align-items: stretch;
+}
+  .order{
+    width:45%;
+    font-size: 14px;
+  }
+}
+
+
+@media(max-width:500px){
+  .orders-container{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:10px;
+    margin-bottom: 50px;
+    margin: 20px auto 50px auto;
+    justify-content: center;
+    align-items: stretch;
+}
+  .order{
+    padding: 20px;
+    width:45%;
+    font-size: 12px;
+    gap:10px;
+  }
+}
+
+
+@media(max-width:350px){
+  .order{
+    padding: 20px;
+    width:80%;
+    font-size: 12px;
+    gap:10px;
+  }
+}
+

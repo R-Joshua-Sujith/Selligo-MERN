@@ -1,0 +1,51 @@
+.view-user-container{
+    display: flex;
+}
+
+.view-user-sub-container{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.view-user-header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add these styles to your Table.css file */
+
+.table-container {
+    overflow-x: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 490px;
+  }
+  
+  .responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .responsive-table th,
+  .responsive-table td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+  }
+  
+  .responsive-table th {
+    background-color: #5644c4;
+    color:white;
+  }
+  
+  .responsive-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .responsive-table tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  

@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Redressed&family=Ubuntu:wght@400;700&display=swap");
+
+
+.view-single-order-container{
+    display: flex;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 50px;
+}
+
+.view-single-order-sub-container{
+    margin-left: 20px;
+}
+
+.view-single-order-sub-sub-container{
+    margin-top: 10px;
+    display: flex;
+    gap:50px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.single-order-card{
+    width: 40%;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     padding: 20px;
+     padding-top: 0px;
+     border-radius: 20px;
+}
+
+.single-order-card-details{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.single-order-card-options-container{
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.single-order-card-options{
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(47, 45, 45);
+    color:white;
+}
+
+.Copy-button{
+    background-color: rgb(57, 55, 55);
+    color:white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.Invoice-Container{
+   
+    padding: 50px;
+    width: 700px;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 1000px;
+    background-size: cover;
+    color:black;
+    background-color:white;
+
+}
+
+.invoice-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap:150px;
+
+}
+
+.sellify-invoice-logo{
+    background-image: url("../../assets/sellify-logoo.png");
+    background-size: contain;
+    width: 500px;
+    height:100px;
+    background-repeat: no-repeat;
+}
+
+.invoice-heading{
+    text-align: center;
+}
+
+.invoice-sellify-address{
+    margin-top: 50px;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.Customer-details{
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.invoice-main-container{
+  margin-top: 1000px;
+}
+
+.Invoice-Main-Container{
+    display: flex;
+    justify-content: space-between;
+}
+
+:root {
+    --bg-clr: #ead376;
+    --white: #fff;
+    --primary-clr: #2f2929;
+    --secondary-clr: #9747ff;
+  }
+  
+  
+  .invoice {
+    width: 700px;
+    height: auto;
+    background: var(--white);
+    padding: 50px 60px;
+    position: relative;
+    margin: 20px auto;
+  }
+  
+  .w_15 {
+    width: 15%;
+  }
+  
+  .w_50 {
+    width: 50%;
+  }
+  
+  .w_55 {
+    width: 55%;
+  }
+  
+  .p_title {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  .i_logo{
+    background-image: url("../../assets/sellify-logoo.png");
+    background-size: contain;
+    width: 200px;
+    height: 70px;
+    background-repeat: no-repeat;
+  }
+  
+  .i_row {
+    display: flex;
+  }
+  
+  .text_right {
+    text-align: right;
+  }
+  
+  .invoice .header .i_row {
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .invoice .header .i_row:last-child {
+    align-items: flex-end;
+  }
+  
+  .invoice .header .i_row .i_logo p {
+    font-family: "Redressed", cursive;
+  }
+  
+  .invoice .header .i_row .i_logo p,
+  .invoice .header .i_row .i_title h2 {
+    font-size: 32px;
+    line-height: 38px;
+    color: #9747ff;
+  }
+  
+  .invoice .header .i_row .i_address .p_title span {
+    font-weight: 400;
+    font-size: 12px;
+  }
+  
+  .invoice .body .i_table .i_col p {
+    font-weight: 700;
+  }
+  
+  .seller-bg{
+      color:white;
+      background: #9747FF;
+      padding: 10px;
+      border-radius: 10px;
+  }
+  
+  .buyer-bg{
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+      margin-left: 20px;
+      padding-right: 10px;
+      padding-top: 10px;
+      border-radius: 10px;
+  }
+  /* .logoo-bg{
+    background-image: url("../../assets/Home/sellify-logo.png");
+    background-size: contain;
+    height: 80px;
+    width: 300px;
+    background-repeat: no-repeat;
+  } */
+  
+  
+  .invoice .body .i_table .i_row .i_col {
+    padding: 12px 5px;
+  
+  }
+  
+  .invoice .body .i_table .i_table_head .i_row {
+    border: 2px solid;
+    border-color: var(--primary-clr) transparent var(--primary-clr) transparent;
+  }
+  
+  .invoice .body .i_table .i_table_body .i_row:last-child {
+    border-bottom: 2px solid var(--primary-clr);
+  }
+  
+  .invoice .body .i_table .i_table_foot .grand_total_wrap {
+    margin-top: 20px;
+  }
+  
+  .invoice .body .i_table .i_table_foot .grand_total_wrap .grand_total {
+    background: var(--secondary-clr);
+    color: var(--white);
+    padding: 10px 15px;
+  }
+  
+  .invoice .body .i_table .i_table_foot .grand_total_wrap .grand_total p {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .invoice .footer {
+    margin-top: 30px;
+  }
+  
+  .top_line,
+  .bottom_line {
+    width: 25px;
+    height: 175px;
+    z-index: 1;
+    position: absolute;
+    background: var(--secondary-clr);
+  }
+  
+  .top_line {
+    top: 0;
+    left: 0;
+  }
+  
+  .bottom_line {
+    bottom: 0;
+    right: 0;
+  }
+  
+  .top_line:before,
+  .bottom_line:before {
+    content: "";
+    position: absolute;
+    border: 13px solid;
+  }
+  
+  .top_line:before {
+    bottom: 0;
+    left: 0px;
+    border-color: transparent var(--white) var(--white) transparent;
+  }
+  
+  .bottom_line:before {
+    top: 0;
+    left: 0px;
+    border-color: var(--white) transparent transparent var(--white);
+  }

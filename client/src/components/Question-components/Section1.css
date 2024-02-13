@@ -1,0 +1,369 @@
+.section-one-container{
+    padding-left: 144px;
+    padding-right: 61px;
+}
+
+.section-one-main-container{
+    width: 100%;
+    display: flex;
+    gap:240px;
+}
+
+.section-one-main-sub-container{
+    width: 1106px;
+}
+
+.section-one-heading-container{
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.section-one-btn-container{
+    display: flex;
+    gap:40px;
+}
+
+.section-one-proceed-btn{
+    border-radius: 5px;
+    background: #9747FF;
+    width: 207px;
+    height: 70px;
+    border: none;
+    color: #FFF;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 62px; /* 258.333% */
+    letter-spacing: -0.48px;
+    cursor: pointer;
+}
+
+.section-one-reset-btn{
+    width: 207px;
+    height: 70px;
+    border-radius: 5px;
+    border: 1px solid #9747FF;
+    color: #181818;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 62px; /* 258.333% */
+    letter-spacing: -0.48px;
+    cursor: pointer;
+}
+
+.section-one-heading{
+    color:#000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.section-one-description{
+    margin-top: 9px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 9px;
+    line-height: 62px;
+}
+
+.section-one-attribute-heading{
+    color: #000;
+    font-family: 'Poppins',sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 62px; /* 193.75% */
+    letter-spacing: -0.64px;
+    margin-bottom:20px;
+}
+
+.section-one-attribute-options-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    margin-bottom: 45px;
+}
+
+.section-one-attribute-option{
+    display: flex;
+    width: 289px;
+}
+
+.section-one-attribute-option-heading{
+    color: #000;
+    font-family: 'Poppins',sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.48px;
+    width: 202px;
+    display: flex;
+}
+
+
+
+.mobile-questions-container{
+    width: 333.585px;
+    height: 688px;
+    background-image: url("../../assets/Questions/mobile-1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.mobile-questions-content{
+    margin-left: 40px;
+    margin-top: 70px;
+    height: 75%;
+    width: 55%;
+    font-size: 14px;
+    overflow: auto;
+    font-family: 'Poppins',sans-serif;
+}
+
+.mobile-questions-content::-webkit-scrollbar{
+    width: 5px;
+    height:5px;
+}
+.mobile-questions-content::-webkit-scrollbar-track{
+  
+    background: white;
+    border-radius:5px ;
+    
+}
+.mobile-questions-content::-webkit-scrollbar-thumb{
+    background:#9747FF;
+  border-radius: 5px;
+}
+
+
+.mobile-questions-content li{
+    margin-top: 3px;
+    list-style: none;
+}
+
+@media screen and (min-width:1440px) and (max-width:1919px){
+    .section-one-container{
+        padding-left: 120px;
+        padding-right: 61px;
+    }
+    
+    .section-one-main-sub-container{
+        width: 850px;
+    }
+    .section-one-attribute-option{
+        display: flex;
+        width: 200px;
+    }
+    .section-one-main-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap:100px;
+    }
+    .section-one-attribute-heading{
+        color: #000;
+        font-family: 'Poppins',sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 40px; /* 193.75% */
+        letter-spacing: -0.64px;
+        margin-bottom:20px;
+    }
+    .section-one-attribute-option-heading{
+        font-size: 22px;
+        width: 150px;
+    }
+    
+    .section-one-attribute-options-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap:50px;
+        margin-bottom: 20px;
+    }
+    .section-one-heading-container{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .mobile-questions-container{
+        width: 333.585px;
+        height: 650px;
+        background-image: url("../../assets/Questions/mobile-1.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+    .mobile-questions-content{
+        margin-left: 40px;
+        margin-top: 70px;
+        height: 75%;
+        width: 70%;
+
+    }
+    
+    .mobile-questions-content li{
+        list-style: none;
+    }
+}
+
+@media screen and (min-width:1280px) and (max-width:1439px){
+    .mobile-questions-container{
+        width: 333.585px;
+        height: 500px;
+        background-image: url("../../assets/Questions/mobile.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .section-one-container{
+        padding-left: 80px;
+        padding-right: 61px;
+    }
+    .section-one-main-sub-container{
+        width: 650px;
+    }
+    .section-one-attribute-option{
+        display: flex;
+        width: 100px;
+    }
+    .section-one-main-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap:50px;  
+    }
+    .section-one-attribute-option{
+        display: flex;
+        width: 180px;
+    }
+    .section-one-heading-container{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media(max-width:1279px){
+    .mobile-questions-content{
+        margin-left: 40px;
+        margin-top: 10px;
+        height: 75%;
+        width: 55%;
+        font-size: 14px;
+        overflow: auto;
+        font-family: 'Poppins',sans-serif;
+    }
+    
+    .mobile-questions-container{
+        display: none;
+    }
+    .section-one-container{
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+    .section-one-heading-container{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .section-one-heading{
+        color:#000;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    .section-one-proceed-btn{
+        border-radius: 5px;
+        background: #9747FF;
+        width: 100px;
+        height:40px;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        line-height: normal;
+    }
+    
+    .section-one-reset-btn{
+        width: 100px;
+        height: 40px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        line-height: normal;
+    }
+
+    .section-one-description{
+        margin-top: 9px;
+        font-size: 14px;
+        line-height: normal;
+        margin-bottom: 20px;
+    }
+
+    .section-one-attribute-heading{
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height:30px;
+        margin-bottom:20px;
+    }
+
+    .section-one-attribute-options-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap:40px;
+        margin-bottom: 20px;
+    }
+    
+    .section-one-attribute-option{
+        display: flex;
+        width: 100px;
+
+    }
+    
+    .section-one-attribute-option-heading{
+        color: #000;
+        font-family: 'Poppins',sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: -0.48px;
+        width: 90px;
+        display: flex;
+    }
+
+    .mobile-questions-content::-webkit-scrollbar{
+        width:initial;
+        height:initial;
+    }
+    .mobile-questions-content::-webkit-scrollbar-track{
+      
+        background:initial;
+        border-radius:initial;
+        
+    }
+    .mobile-questions-content::-webkit-scrollbar-thumb{
+        background:initial;
+      border-radius: initial;
+    }
+    
+    
+    
+    
+    
+}
+

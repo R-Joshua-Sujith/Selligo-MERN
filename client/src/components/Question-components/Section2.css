@@ -1,0 +1,528 @@
+.section-two-container{
+    padding-left: 144px;
+    padding-right: 64px;
+    margin-bottom: 100px;
+}
+
+.section-two-main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    gap:300px;
+}
+
+.section-two-sub-container{
+    width: 974px;
+}
+
+.section-two-heading-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.section-two-heading-black{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 62px; /* 193.75% */
+    letter-spacing: -0.64px;
+    cursor: pointer;
+}
+
+.section-two-heading-purple{
+    color: #9747FF;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 62px;
+    letter-spacing: -0.64px;
+    cursor: pointer;
+}
+
+.section-two-button-container{
+    display: flex;
+    flex-wrap:wrap ;
+    gap:19px;
+}
+
+.section-two-button-proceed{
+    width: 207px;
+    height: 70px;
+    color: #FFF;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 62px; /* 258.333% */
+    letter-spacing: -0.48px;
+    border-radius: 5px;
+    background: #9747FF;
+    border: none;
+    cursor: pointer;
+}
+
+.section-two-button-reset{
+    width: 207px;
+    height: 70px;
+    border-radius: 5px;
+    border: 1px solid #9747FF;
+    color: #181818;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 62px; /* 258.333% */
+    letter-spacing: -0.48px;
+    border: none;
+    cursor: pointer;
+}
+
+.section-two-device-name{
+    margin-top: 50px;
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 25% */
+    letter-spacing: -1.28px;
+}
+
+.section-two-device-description{
+    margin-top: 40px;
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 62px; /* 258.333% */
+    letter-spacing: -0.48px;
+}
+
+.section-two-device-option-main-heading{
+    margin-top: 50px;
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 62px; /* 193.75% */
+    letter-spacing: -0.64px;
+}
+
+.section-two-device-option-container{
+    margin-top: 30px;
+    width: 530px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:30px;
+}
+
+.section-two-device-icon{
+    height: 70px;
+    width: 70px;
+}
+
+.section-two-device-option{
+    height: 123px;
+    width: 250px;
+    background: #EFEFEF;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.48px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.section-two-device-option-selected{
+    background-color: #181818;
+    color:white;
+    height: 123px;
+    width: 250px;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.48px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobile-questions-container-2{
+    margin: 0 auto;
+    width: 105px;
+    height: 204px;
+    background-image: url("../../assets/Questions/mobile-2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+}
+
+.questions-tick-mark{
+    width: 22px;
+    height: 22px;
+    background-color: #9747FF;
+    border-radius: 20px;
+    background-image: url("../../assets/Questions/tick.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+
+}
+
+.questions-cross-mark{
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border-radius: 20px;
+    background-image: url("../../assets/Questions/cross.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+
+li{
+    display:flex;
+    gap:5px;
+}
+
+
+@media screen and (min-width:1440px) and (max-width:1919px){
+    .section-two-heading-container{
+        margin-top: 50px;
+    }
+    .section-two-container{
+        padding-left: 120px;
+        padding-right: 61px;
+    }
+    .section-two-main-container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
+        gap:100px;
+    }
+    .section-two-sub-container{
+        width: 850px;
+    }
+    .section-two-device-name{
+        margin-top: 50px;
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px; /* 25% */
+        letter-spacing: -1.28px;
+    }
+    .section-two-device-option-main-heading{
+        margin-top: 40px;
+        font-size: 24px;
+        line-height: 30px; /* 193.75% */
+    }
+    .section-two-device-option{
+        height: 100px;
+        width: 230px;
+        background: #EFEFEF;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .section-two-device-option-selected{
+        background-color: #181818;
+        color:white;
+        height: 100px;
+        width: 230px;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width:1280px) and (max-width:1439px){
+    .section-two-heading-container{
+        margin-top: 50px;
+    }
+    .section-two-container{
+        padding-left: 80px;
+        padding-right: 61px;
+    }
+    .section-two-main-container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
+        gap:100px;
+    }
+    .section-two-sub-container{
+        width: 700px;
+    }
+    .section-two-device-name{
+        margin-top: 50px;
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px; /* 25% */
+        letter-spacing: -1.28px;
+    }
+    .section-two-device-option-main-heading{
+        margin-top: 40px;
+        font-size: 24px;
+        line-height: 30px; /* 193.75% */
+    }
+    .section-two-device-option{
+        height: 100px;
+        width: 230px;
+        background: #EFEFEF;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .section-two-device-option-selected{
+        background-color: #181818;
+        color:white;
+        height: 100px;
+        width: 230px;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+    }
+}
+
+@media(max-width:1279px){
+    .mobile-questions-container-2{
+
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 105px;
+        height: 204px;
+        background-image: url("../../assets/Questions/mobile-2.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+display: block;
+position: relative;
+    }
+    .mobile-questions-content{
+        position: absolute;
+        top:-3%;
+        overflow: hidden;
+        margin-top: 30px;
+        padding-top:0px;
+        margin-left: 10px;
+        font-size:8px;
+        overflow: auto;
+        width: 80%;
+        height:80%;
+    }
+    .questions-tick-mark{
+        width: 12px;
+        height: 12px;
+        border-radius: 20px;
+        background-image: url("../../assets/Questions/tick.png");
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: inline-block;
+   
+    
+    }
+    
+    .questions-cross-mark{
+        width: 12px;
+        height: 12px;
+        border-radius: 20px;
+        background-image: url("../../assets/Questions/cross.png");
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+    
+    .section-two-container{
+        padding-left: 20px;
+        padding-right: 10px;
+        margin-bottom: 100px;
+    }
+    .section-two-heading-container{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .section-two-heading-black{
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 62px; /* 193.75% */
+        letter-spacing: -0.64px;
+    }
+    
+    .section-two-heading-purple{
+        color: #9747FF;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 62px;
+        letter-spacing: -0.64px;
+    }
+    .section-two-button-proceed{
+        border-radius: 5px;
+        background: #9747FF;
+        width: 100px;
+        height:40px;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        line-height: normal;
+    }
+    
+    .section-two-button-reset{
+        width: 100px;
+        height: 40px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        line-height: normal;
+    }
+    .section-two-device-name{
+        font-size: 20px;
+        line-break: auto;
+        width: max-content;
+    }
+    .section-two-device-option-main-heading{
+        margin-top: 20px;
+        font-size: 18px;
+        line-height: 25px; /* 193.75% */
+    }
+    .section-two-device-option{
+        height: 70px;
+        width: 100px;
+        background: #EFEFEF;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .section-two-device-option-selected{
+        background-color: #181818;
+        color:white;
+        height: 70px;
+        width: 100px;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.10), -4px -4px 10px 0px rgba(0, 0, 0, 0.10);
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+    }
+    .section-two-device-option-container{
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap:30px;
+    }
+}
+
+@media(max-width:300px){
+    .section-two-device-name{
+        font-size: 15px;
+        line-break: auto;
+        width: max-content;
+    }
+}
+

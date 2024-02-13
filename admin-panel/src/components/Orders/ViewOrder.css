@@ -1,0 +1,79 @@
+.view-orders-container{
+    width: 100%;
+    display: flex;
+}
+
+
+.view-heading{
+  color:#5644c4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.icon-change-container{
+    display: flex;
+    gap:5px;
+    justify-content: space-between;
+}
+
+.view-order-sub-container{
+    width:100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.view-order-header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.change-status-btn{
+    background-color: #5644c4;
+    border-radius: 10px;
+    font-size: 12px;
+    color:white;
+    border: none;
+    cursor: pointer;
+}
+
+.order-Date{
+    font-size: 18px;
+    padding: 10px;
+}
+
+.table-order-container {
+    overflow-x: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 510px;
+  }
+  
+.responsive-order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0px;
+  }
+
+
+  
+ .responsive-order-table th,
+  .responsive-order-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+  }
+  
+  .responsive-order-table th {
+    background-color: #5644c4;
+    color:white;
+  }
+  
+  .responsive-order-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .responsive-order-table tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  

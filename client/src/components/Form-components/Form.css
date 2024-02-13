@@ -1,0 +1,472 @@
+.form-sub-container{
+    margin-top: 100px;
+    padding-left: 203px;
+    padding-right: 94px;
+    overflow: hidden;
+}
+
+.form-heading-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 67px;
+}
+
+.form-heading-sub-container{
+    display: flex;
+    gap:45px;
+}
+
+.form-heading{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 62.5% */
+    text-transform: uppercase;
+    cursor: default;
+}
+
+.form-heading-2{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 100% */
+    text-transform: uppercase;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.form-small-heading{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 100% */
+    text-transform: uppercase;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.form-small-heading-2{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 62.5% */
+    text-transform: uppercase;
+    cursor:default;
+}
+
+.form-btn{
+    width: 274px;
+    height: 71px;
+    border-radius: 5px;
+    background: #9747ff;
+    color: #FFF;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    border: none;
+}
+
+.main-input-container{
+    display: flex;
+    gap:43px;
+    margin-bottom: 69px;
+}
+
+.small-input{
+    width: 500px;
+    height: 101px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    opacity: 1;
+    background: #ececec;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.input-date,.input-time{
+    font-size: 25px;
+    padding: 0 40px;
+}
+
+.tooltipp{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.4px; /* 126.667% */
+    letter-spacing: -0.48px;
+    margin-bottom: 10px;
+}
+
+
+.address-container{
+    margin-top: 47px;
+}
+
+.address-container-heading{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 62.5% */
+    text-transform: uppercase;
+    margin-bottom: 69px;
+}
+
+.address-input{
+    width: 1586px;
+    height: 101px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    opacity: 1;
+    background: #ececec;
+    border: none;
+    outline: none;
+    margin-bottom: 69px;
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.required-field-form{
+    color:red;
+}
+
+@media screen and (min-width:1440px) and (max-width:1919px){
+    .form-sub-container{
+        margin-top: 100px;
+        padding-left: 100px;
+        padding-right: 94px;
+        overflow: hidden;
+    }
+    .tooltipp{
+        font-size: 20px;
+    }
+    .small-input{
+        width: 350px;
+        height: 80px;
+        font-size: 26px;
+    }
+    .address-input{
+        width: 1100px;
+        height: 80px;
+        font-size: 26px;
+    }
+
+}
+
+@media screen and (min-width:1280px) and (max-width:1439px){
+    .tooltipp{
+        font-size: 20px;
+    }
+    .small-input{
+        width: 300px;
+        height: 80px;
+        font-size: 26px;
+    }
+    .address-input{
+        width: 1000px;
+        height: 80px;
+        font-size: 26px;
+    }
+    .form-sub-container{
+        padding-left: 120px;
+    } 
+}
+
+@media screen and (min-width:768px) and (max-width:1279px){
+    .input-date,.input-time{
+        font-size: 20px;
+        padding: 0 20px;
+    }
+    .tooltipp{
+        font-size: 16px;
+    }
+    .small-input{
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+    }
+    .address-input{
+        width: 650px;
+        height: 60px;
+        font-size: 20px;
+    }
+    .form-sub-container{
+        padding-left: 50px;
+        padding-right: 50px;
+    } 
+    .form-heading{
+        font-size: 20px;
+    }
+    .form-small-heading{
+        font-size: 16px;
+    }
+    .form-heading-2{
+        font-size: 16px;
+    }
+    .form-small-heading-2{
+        font-size: 20px;
+    }
+    
+    .form-btn{
+        width: 150px;
+        height: 50px;
+        height: max-content;
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+    .main-input-container{
+        margin-bottom: 20px;
+    }
+    .address-container-heading{
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+    .address-input{
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (min-width:400px) and (max-width:767px){
+  
+    .tooltipp{
+        font-size: 14px;
+    }
+    .small-input{
+        width: 130px;
+        height: 60px;
+        font-size: 16px;
+    }
+    .input-date,.input-time{
+        font-size: 16px;
+        padding: 0 20px;
+        width: 200px;
+        height: 80px;
+    }
+    .address-input{
+        width: 300px;
+        height: 60px;
+        font-size: 16px;
+    }
+    .form-sub-container{
+        padding-left: 50px;
+        padding-right: 50px;
+    } 
+    .form-heading{
+        font-size: 18px;
+    }
+    .form-small-heading{
+        font-size: 14px;
+        display: none;
+    }
+    .form-heading-2{
+        font-size: 14px;
+        display: none;
+    }
+    .form-small-heading-2{
+        font-size: 18px;
+    }
+    
+    .form-btn{
+        width: 80px;
+        height: 40px;
+        width: max-content;
+        height: max-content;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+    .main-input-container{
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap:30px;
+    }
+    .address-container-heading{
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+    .address-input{
+        margin-bottom: 20px;
+    }
+    .form-heading-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (min-width:300px) and (max-width:399px){
+    .tooltipp{
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+    .small-input{
+        width: 120px;
+        height: 40px;
+        font-size: 14px;
+    }
+    .input-date,.input-time{
+        font-size: 16px;
+        padding: 0 20px;
+        width: 200px;
+        height: 80px;
+    }
+    .address-input{
+        width: 300px;
+        height: 40px;
+        font-size: 14px;
+    }
+    .form-sub-container{
+        padding-left: 20px;
+        padding-right: 20px;
+    } 
+    .form-heading{
+        font-size: 18px;
+    }
+
+    .form-small-heading{
+        font-size: 14px;
+        display: none;
+    }
+    .form-heading-2{
+        font-size: 14px;
+        display: none;
+    }
+    .form-small-heading-2{
+        font-size: 18px;
+    }
+    
+    .form-btn{
+        width: 80px;
+        height: 40px;
+        width: max-content;
+        height: max-content;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+    .main-input-container{
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap:10px;
+    }
+    .address-container-heading{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .address-input{
+        margin-bottom: 10px;
+        width: 80%;
+    }
+    .form-heading-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:300px){
+    .tooltipp{
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+    .small-input{
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+    }
+    .input-date,.input-time{
+        font-size: 16px;
+        padding: 0 20px;
+        width: 100%;
+        height: 80px;
+    }
+    .address-input{
+        width: 100px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .form-sub-container{
+        padding-left: 20px;
+        padding-right: 20px;
+    } 
+    .form-heading{
+        font-size: 18px;
+    }
+    .form-small-heading{
+        font-size: 14px;
+        display: none;
+    }
+    .form-heading-2{
+        font-size: 14px;
+        display: none;
+    }
+    .form-small-heading-2{
+        font-size: 18px;
+    }
+    
+    .form-btn{
+        width: 80px;
+        height: 40px;
+        font-size: 16px;
+        padding: 5px 10px;
+        width: max-content;
+        height: max-content;
+    }
+    .main-input-container{
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap:10px;
+    }
+    .address-container-heading{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .address-input{
+        margin-bottom: 10px;
+        width: 80%;
+    }
+    .form-heading-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .form-small-heading{
+        font-size: 14px;
+        display: none;
+    }
+    .form-heading-container{
+        align-items: flex-start;
+        gap:20px;
+        flex-direction: column;
+    }
+}
+
+
+
+

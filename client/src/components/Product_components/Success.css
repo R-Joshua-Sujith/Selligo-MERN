@@ -1,0 +1,83 @@
+.success-page-container{
+    padding-top: 35px;
+    height: max-content;
+    padding-bottom: 15px;
+}
+
+.success-image-container{
+    display: flex;
+    justify-content: center;
+}
+
+.success-image{
+    height:50vh;
+    width:auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.success-page-sub-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.success-page-container p{
+    text-align: center;
+    color: #000;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.success-page-sub-container p{
+    text-align: center;
+    color: #000;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight:500;
+    line-height: normal;
+}
+
+.success-page-container button{
+    padding: 15px;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 6px;
+    background: #A24FFF;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: 0.3s all ease-in-out;
+}
+
+/* .success-page-container button:hover{
+    background: #175076;
+} */
+
+@media(max-width:600px){
+    .success-page-container p{
+        text-align: center;
+        color: #000;
+        font-family: Gilroy;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    
+    .success-page-sub-container p{
+        text-align: center;
+        color: #000;
+        font-family: Gilroy;
+        font-size: 14px;
+        font-style: normal;
+        font-weight:500;
+        line-height: normal;
+    }
+}

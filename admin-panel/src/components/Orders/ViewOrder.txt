@@ -1,0 +1,584 @@
+import React from "react";
+import Navigation from "../RepeatableComponents/Navigation";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
+import { DataGrid } from "@mui/x-data-grid";
+import { Box, Pagination } from "@mui/material";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import AddIcon from "@mui/icons-material/Add";
+import Button from "@mui/material/Button";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import { PDFDocument } from "pdf-lib";
+
+import "./ViewOrder.css";
+
+const ViewOrder = () => {
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
+  const [totalRows, setTotalRows] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [IMEINumber, setIMEINumber] = useState("");
+  const [finalPrice, setFinalPrice] = useState("");
+  const [fileInputs, setFileInputs] = useState({
+    deviceBill: null,
+    idCard: null,
+    deviceImage: null,
+  });
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
+
+  const handlePageChange = (event, newPage) => {
+    setCurrentPage(newPage);
+  };
+  const handlePageSizeSelectChange = (event) => {
+    const newPageSize = parseInt(event.target.value, 10);
+    setPageSize(newPageSize);
+    setCurrentPage(1); // Reset to page 1 when changing page size
+  };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://sellify-backend.onrender.com/get-all-orders?page=${currentPage}&pageSize=${pageSize}`
+      );
+      console.log(response.data);
+      setData(response.data.data);
+      setTotalRows(response.data.totalRows);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [currentPage, pageSize]);
+
+  const handleModalOpen = (orderId) => {
+    setSelectedOrderId(orderId); // Set the selected order's ID
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => setModalOpen(false);
+
+  const columns = [
+    {
+      field: "orderID",
+      headerName: "Order ID",
+      width: 150,
+    },
+    {
+      field: "firstName",
+      headerName: "Customer Name",
+      width: 150,
+    },
+    {
+      field: "phone",
+      headerName: "phone",
+      width: 150,
+    },
+    {
+      field: "productDetails.productName",
+      headerName: "Device",
+      width: 250,
+      valueGetter: (params) => params.row.productDetails?.productName || "",
+    },
+    {
+      field: "productDetails.price",
+      headerName: "Price",
+      width: 150,
+      valueGetter: (params) => params.row.productDetails?.price || "",
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      width: 150,
+      valueGetter: (params) => params.row?.status || "",
+      renderCell: (params) => (
+        <div className="icon-container">
+          <button>Cancel</button>
+        </div>
+      ),
+    },
+
+    {
+      field: "actions",
+      headerName: "Actions",
+      width: 150,
+      renderCell: (params) => (
+        <div className="icon-container">
+          <VisibilityIcon
+          // onClick={() => {
+          //   navigate(`/view-product/${params.row._id}`);
+          // }}
+          />
+          <EditIcon
+          // onClick={() => {
+          //   navigate(`/edit-product/${params.row._id}`);
+          // }}
+          />
+          <DeleteIcon
+          // onClick={() => {
+          //   deleteProduct(params.row._id);
+          // }}
+          />
+        </div>
+      ),
+    },
+  ];
+
+  const [orderDetailsModalOpen, setOrderDetailsModalOpen] =
+    React.useState(false);
+  const handleOrderDetailsModalOpen = () => setOrderDetailsModalOpen(true);
+  const handleOrderDetailsModalClose = () => setOrderDetailsModalOpen(false);
+
+  const [cancelOrderModalOpen, setCancelOrderModalOpen] = React.useState(false);
+  const handleCancelOrderModalOpen = (orderId) => {
+    setSelectedOrderId(orderId);
+    setCancellationReason(""); // Reset the cancellation reason
+    setCancelOrderModalOpen(true);
+  };
+
+  const handleCancelOrderModalClose = () => setCancelOrderModalOpen(false);
+  const [cancellationReason, setCancellationReason] = useState("");
+
+  const handleStatusChange = async (status) => {
+    console.log("Selected Status:", status);
+
+    if (status === "processing" && selectedOrderId) {
+      try {
+        // Send a PUT request to update the order status to 'processing'
+        await axios.put(
+          `https://sellify-backend.onrender.com/api/orders/${selectedOrderId}/processing`
+        );
+
+        // Fetch updated data after the status change
+        fetchData();
+
+        // Close the modal
+        handleModalClose();
+      } catch (error) {
+        console.error("Error updating status:", error);
+      }
+    } else if (status === "complete") {
+      // Open "Order Details" modal
+      handleOrderDetailsModalOpen();
+    } else if (status === "cancel" && selectedOrderId) {
+      // Open "Cancel Order" modal
+      handleCancelOrderModalOpen(selectedOrderId);
+    } else {
+      // Additional logic for other status changes
+      // ...
+    }
+    handleModalClose();
+  };
+
+  const handleCancelOrder = async () => {
+    if (cancellationReason === "") {
+      alert("Please enter  a cancellation reason");
+      return;
+    }
+    try {
+      // Send a PUT request to update the order status to 'cancel' and provide the cancellation reason
+      await axios.put(`https://sellify-backend.onrender.com/${selectedOrderId}/cancel`, {
+        cancellationReason,
+      });
+
+      // Fetch updated data after the status change
+      fetchData();
+
+      // Close the modal
+      handleCancelOrderModalClose();
+    } catch (error) {
+      console.error("Error canceling order:", error);
+      console.log(selectedOrderId);
+    }
+  };
+
+  const handleFileInputChange = (name, event) => {
+    const file = event.target.files[0];
+    setFileInputs((prevInputs) => ({
+      ...prevInputs,
+      [name]: file,
+    }));
+  };
+  const handleCompleteOrder = async () => {
+    // Check if all required files are uploaded
+    if (finalPrice === "") {
+      alert("Please fill final price");
+      return;
+    }
+    if (IMEINumber === "") {
+      alert("Please fill the imei number");
+      return;
+    }
+    if (
+      !fileInputs.deviceBill ||
+      !fileInputs.idCard ||
+      !fileInputs.deviceImage
+    ) {
+      alert("Please upload all required files");
+      return;
+    }
+
+    // Create a FormData object to send the file data
+    const formData = new FormData();
+    formData.append("imeiNumber", IMEINumber); // Replace with actual values
+    formData.append("finalPrice", finalPrice); //
+    formData.append("deviceBill", fileInputs.deviceBill);
+    formData.append("idCard", fileInputs.idCard);
+    formData.append("deviceImage", fileInputs.deviceImage);
+
+    try {
+      // Send a POST request to complete the order with file data
+      await axios.put(
+        `https://sellify-backend.onrender.com/api/orders/${selectedOrderId}/complete`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Set content type to multipart/form-data
+          },
+        }
+      );
+      setIMEINumber("");
+      setFinalPrice("");
+      setFileInputs({
+        deviceBill: null,
+        idCard: null,
+        deviceImage: null,
+      });
+
+      // Fetch updated data after completing the order
+      fetchData();
+      alert("Order completed successfully!");
+      handleOrderDetailsModalClose();
+    } catch (error) {
+      console.error("Error completing order:", error);
+    }
+  };
+
+  const [loading, setLoading] = useState(false);
+
+  const handleDownloadInvoice = async (orderId) => {
+    try {
+      setLoading(true);
+
+      // Fetch JSON data from the backend
+      const response = await fetch(
+        `https://sellify-backend.onrender.com/api/get-invoice-data/${orderId}`
+      );
+      const invoiceData = await response.json();
+      console.log(invoiceData);
+
+      // Generate PDF
+      const pdfDoc = await PDFDocument.create();
+      const page = pdfDoc.addPage([1000, 1000]);
+      const { height } = page.getSize();
+
+      // Define a function to add text to the PDF page
+      const addText = (text, yOffset) => {
+        page.drawText(text, { x: 50, y: height - yOffset });
+      };
+
+      // Add content to the PDF
+      addText(`Invoice for Order ${orderId}`, 50);
+      addText(`First Name: ${invoiceData.firstName}`, 100);
+      addText(`Last Name: ${invoiceData.lastName}`, 150);
+      addText(`Email: ${invoiceData.email}`, 200);
+      addText(`Phone: ${invoiceData.phone}`, 250);
+      addText(`Address: ${invoiceData.address}`, 300);
+      addText(`Zip Code: ${invoiceData.zipCode}`, 350);
+      addText(`City: ${invoiceData.city}`, 400);
+
+      // Product details
+      addText(`Product Name: ${invoiceData.productDetails.productName}`, 450);
+      addText(`Price: ${invoiceData.finalPrice}`, 500);
+      addText(`IMEI Number: ${invoiceData.imeiNumber}`, 550);
+
+      // Add other fields as needed
+
+      // Save the PDF to a Uint8Array
+      const pdfBytes = await pdfDoc.save();
+
+      // Create a Blob from the Uint8Array
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+
+      // Create a link element and trigger the download
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.download = `invoice_${orderId}.pdf`;
+      link.click();
+
+      // Clean up the URL.createObjectURL
+      window.URL.revokeObjectURL(link.href);
+    } catch (error) {
+      console.error("Error downloading invoice:", error);
+      // Handle the error as needed
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="view-orders-container">
+      <Navigation />
+      <div>
+        <div>
+          <h1>Orders</h1>
+          <Box sx={{ height: "380px", width: "100%", mt: 3 }}>
+            <TableContainer>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.field}
+                        sx={{
+                          fontSize: 14, // Adjust the font size as needed
+                        }}
+                      >
+                        {column.headerName}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {data.map((row) => (
+                    <TableRow key={row._id}>
+                      <TableCell>{row.orderID}</TableCell>
+                      <TableCell>{row.firstName}</TableCell>
+                      <TableCell>{row.phone}</TableCell>
+                      <TableCell>
+                        {row.productDetails?.productName || ""}
+                      </TableCell>
+                      <TableCell>{row.productDetails?.price || ""}</TableCell>
+                      <TableCell>
+                        <div className="icon-container">
+                          {row?.status || ""}
+                          {row?.status === "complete" && (
+                            <button
+                              onClick={() => {
+                                handleDownloadInvoice(row._id);
+                              }}
+                            >
+                              Download
+                            </button>
+                          )}
+                          <button onClick={() => handleModalOpen(row._id)}>
+                            Change Status
+                          </button>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="icon-container">
+                          <VisibilityIcon />
+                          <EditIcon />
+                          <DeleteIcon />
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <div className="pagination-container">
+              <Pagination
+                count={Math.ceil(totalRows / pageSize)}
+                page={currentPage}
+                onChange={handlePageChange}
+                size="large"
+                color="primary"
+                showFirstButton
+                showLastButton
+                sx={{ mt: 2 }}
+              />
+              <div className="pagination-sub-container">
+                {" "}
+                <Select
+                  value={pageSize}
+                  onChange={handlePageSizeSelectChange}
+                  variant="outlined"
+                  style={{ marginLeft: "10px", height: "40px" }}
+                >
+                  <MenuItem value={2}>2</MenuItem>
+                  <MenuItem value={5}>5</MenuItem>
+                  <MenuItem value={10}>10</MenuItem>
+                  <MenuItem value={25}>25</MenuItem>
+                  <MenuItem value={100}>100</MenuItem>
+                </Select>
+                <br />
+                <span>Total Items {totalRows}</span>
+              </div>
+            </div>
+          </Box>
+        </div>
+      </div>
+      <Modal open={modalOpen} onClose={handleModalClose}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 300,
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <Typography variant="h6" gutterBottom>
+            Change Status
+          </Typography>
+          <Button onClick={() => handleStatusChange("processing")}>
+            Processing
+          </Button>
+          <Button onClick={() => handleStatusChange("complete")}>
+            Complete
+          </Button>
+          <Button onClick={() => handleStatusChange("cancel")}>Cancel</Button>
+        </Box>
+      </Modal>
+
+      <Modal
+        open={orderDetailsModalOpen}
+        onClose={handleOrderDetailsModalClose}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 400,
+            bgcolor: "white",
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 8,
+          }}
+        >
+          <Typography variant="h6" gutterBottom>
+            Order Details
+          </Typography>
+          <TextField
+            label="Final Price"
+            fullWidth
+            margin="normal"
+            value={finalPrice}
+            onChange={(e) => {
+              setFinalPrice(e.target.value);
+            }}
+          />
+          <TextField
+            label="IMEI Number"
+            fullWidth
+            margin="normal"
+            value={IMEINumber}
+            onChange={(e) => {
+              setIMEINumber(e.target.value);
+            }}
+          />
+          <div style={{ margin: "16px 0" }}>
+            <label htmlFor="deviceBill" style={{ marginRight: "8px" }}>
+              Device Bill:
+            </label>
+            <input
+              type="file"
+              id="deviceBill"
+              accept=".pdf, .jpg, .png"
+              onChange={(e) => handleFileInputChange("deviceBill", e)}
+              style={{ marginBottom: "8px" }}
+            />
+          </div>
+          <div style={{ margin: "16px 0" }}>
+            <label htmlFor="idCard" style={{ marginRight: "8px" }}>
+              ID Card:
+            </label>
+            <input
+              type="file"
+              id="idCard"
+              accept=".pdf, .jpg, .png"
+              onChange={(e) => handleFileInputChange("idCard", e)}
+              style={{ marginBottom: "8px" }}
+            />
+          </div>
+          <div style={{ margin: "16px 0" }}>
+            <label htmlFor="deviceImage" style={{ marginRight: "8px" }}>
+              Device Image:
+            </label>
+            <input
+              type="file"
+              id="deviceImage"
+              accept=".pdf, .jpg, .png"
+              onChange={(e) => handleFileInputChange("deviceImage", e)}
+              style={{ marginBottom: "16px" }}
+            />
+          </div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleCompleteOrder}
+            style={{ marginRight: "8px" }}
+          >
+            Save
+          </Button>
+          <Button variant="contained" onClick={handleOrderDetailsModalClose}>
+            Cancel
+          </Button>
+        </Box>
+      </Modal>
+      <Modal open={cancelOrderModalOpen} onClose={handleCancelOrderModalClose}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 400,
+            bgcolor: "white",
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 8,
+          }}
+        >
+          <Typography variant="h6" gutterBottom>
+            Cancel Order
+          </Typography>
+          <TextField
+            label="Cancellation Reason"
+            multiline
+            rows={4}
+            fullWidth
+            value={cancellationReason}
+            onChange={(e) => setCancellationReason(e.target.value)}
+            margin="normal"
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleCancelOrder}
+            style={{ marginRight: "8px" }}
+          >
+            Cancel Order
+          </Button>
+          <Button variant="contained" onClick={handleCancelOrderModalClose}>
+            Close
+          </Button>
+        </Box>
+      </Modal>
+    </div>
+  );
+};
+
+export default ViewOrder;

@@ -1,0 +1,280 @@
+.Login-section{
+    background-image: url("../../assets/Home/mobile-bg.jpeg");
+    height: 150vh;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-section-container{
+    width: 1144px;
+    height: max-content;
+    padding-bottom: 100px;
+    border-radius: 10px;
+    border: 5px solid #5D5FEF;
+    background: rgba(255, 255, 255, 0.31);
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.15), -4px -4px 10px 0px rgba(0, 0, 0, 0.15);
+    margin:0 auto;
+    margin-top: 100px;
+}
+
+.login-description{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.4px; /* 95% */
+    letter-spacing: -0.64px;
+    margin: 0 auto;
+    margin-top: 73px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-email-container{
+    width: 760px;
+    height: 101px;
+    border-radius: 8px;
+    background: #FFF;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.4px; /* 126.667% */
+    letter-spacing: -0.48px;
+    display: flex;
+    justify-content:flex-start;
+    align-items:center ;
+    padding-left: 50px;
+    gap:50px;
+}
+
+.login-email-container input{
+    width: 80%;
+    height: 60px;
+    border: none;
+    border-left: 1px solid black;
+    padding-left: 50px;
+    font-size: 24px;
+    outline: none;
+}
+
+
+.login-button-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    gap:100px;
+}
+
+.login-button-container button{
+    width: 274px;
+    height: 72px;
+    border-radius: 5px;
+    background: #5D5FEF;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30.4px; /* 95% */
+    letter-spacing: -0.64px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-button-container button:hover{
+    background-color: #FFF;
+    color:#5D5FEF;
+}
+
+
+@media screen and (min-width:1200px) and (max-width:1919px){
+    .login-section-container{
+    
+        width: 800px;
+    }
+    .login-description{
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30.4px; /* 95% */
+        letter-spacing: -0.64px;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-email-container{
+        width: 600px;
+        height: 70px;
+        border-radius: 8px;
+        background: #FFF;
+        margin: 0 auto;
+        margin-top: 50px;
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30.4px; /* 126.667% */
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content:flex-start;
+        align-items:center ;
+        padding-left: 50px;
+        gap:50px;
+    }
+    
+    .login-email-container input{
+        width: 80%;
+        height: 60px;
+        border: none;
+        border-left: 1px solid black;
+        padding-left: 50px;
+        font-size: 20px;
+        outline: none;
+    }
+
+    .login-button-container{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        gap:70px;
+    }
+    
+    .login-button-container button{
+        width: 274px;
+        height: 60px;
+        border-radius: 5px;
+        background: #5D5FEF;
+        border: none;
+        cursor: pointer;
+        color: #FFF;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30.4px; /* 95% */
+        letter-spacing: -0.64px;
+        cursor: pointer;
+    }
+    
+}
+
+@media(max-width:1200px){
+    .login-section-container{
+        padding-bottom: 20px;
+        height: max-content;
+        width: 400px;
+    }
+    .login-description{
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 95% */
+        letter-spacing: -0.64px;
+        margin: 0 auto;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-email-container{
+        width:90%;
+        height: 40px;
+        border-radius: 8px;
+        background: #FFF;
+        margin: 0 auto;
+        margin-top: 20px;
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 10.4px; /* 126.667% */
+        letter-spacing: -0.48px;
+        display: flex;
+        justify-content:flex-start;
+        align-items:center ;
+        padding-left: 0px;
+        gap:0px;
+    }
+
+    .login-email-container input{
+        width: 100%;
+        height: 40px;
+        border: none;
+        padding-left: 10px;
+        font-size: 14px;
+        outline: none;
+        border-radius: 10px;
+    }
+    
+    .login-email-label{
+        display: none;
+    }
+
+    .login-button-container{
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        gap:10px;
+    }
+    
+    .login-button-container button{
+        width: 40%;
+        height: 40px;
+        border-radius: 5px;
+        background: #5D5FEF;
+        border: none;
+        cursor: pointer;
+        color: #FFF;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30.4px; /* 95% */
+        letter-spacing: -0.64px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .login-button-container button:hover{
+        background-color: #FFF;
+        color:#5D5FEF;
+    }
+    
+}
+
+@media(max-width:500px){
+    .login-section-container{
+        padding-bottom: 20px;
+        height: max-content;
+        width:90%;
+    }
+}

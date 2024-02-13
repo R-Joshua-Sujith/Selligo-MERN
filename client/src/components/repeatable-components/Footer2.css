@@ -1,0 +1,37 @@
+a{
+    text-decoration: none;
+}
+
+.footer-section{
+    margin-top: 10px;
+
+}
+
+.footer-anchor-tags{
+    text-decoration: none;
+    color:#575B95;
+}
+
+.selligo-logo-footer-image{
+    
+    cursor: pointer;
+    height: 30px;
+    width: 150px;
+    background-image: url("../../assets/Home/selligo-logo-purple.png");
+    background-size: contain;
+    background-position: center center;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+
+}
+
+.footer-last-address{
+    margin-top: 10px;
+}
+
+@media(min-width:1921px){
+    .footer-section{
+        width: 1920px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,525 @@
+.single-product-container{
+    padding-left: 144px;
+    padding-bottom: 100px;
+}
+
+.single-product-variant-heading{
+    color: #181818;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-top: 70px;
+}
+
+.single-product-variant-sub-heading{
+    color: #000;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 100% */
+    letter-spacing: -0.48px;
+}
+
+.single-product-sub-container{
+    margin-top:100px;
+    padding-top: 53px;
+    padding-left: 94px;
+    width: 1714px;
+    height: 600px;
+    border-radius: 16px;
+    border: 1px solid #181818;
+    display: flex;
+    gap:232px;
+}
+
+.single-product-sub-container-one{
+    width: 463px;
+    height: 520px;
+    flex-shrink: 0;
+    background-image: url("../../assets/Products/single-product.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.single-product-sub-container-two{
+    display: flex;
+    gap:20px;
+    flex-direction: column;
+}
+
+
+.single-product-sub-container-two-name{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -1.28px;
+}
+
+.single-product-sub-container-variant-name{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.single-product-sub-container-variant-buttons-container{
+    display: flex;
+    flex-direction: row;
+    gap:35px;
+}
+
+.single-product-sub-container-variant-button{
+    width: 225px;
+    height: 69px;
+    border-radius: 6px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    color: black;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 66.667% */
+    letter-spacing: -0.48px;
+    transition: all 0.3s ease-in-out;
+}
+
+.single-product-sub-container-variant-button:hover{
+    background: #9747FF;
+    color: #FFF;
+}
+
+.single-product-sub-container-variant-color-heading{
+    margin-top: 31px;
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.72px;
+}
+
+.single-product-sub-container-variant-color-container{
+    display: flex;
+    gap:23px;
+}
+
+.single-product-sub-container-variant-color-one{
+    height: 36px;
+    width: 36px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.single-product-sub-container-variant-color-two{
+    height: 36px;
+    width: 36px;
+    background-color: #dadad9;
+    border-radius: 50%;
+}
+
+.single-product-sub-container-variant-color-three{
+    height: 36px;
+    width: 36px;
+    background-color: #008000;
+    border-radius: 50%;
+}
+
+.single-product-sub-container-variant-color-four{
+    height: 36px;
+    width: 36px;
+    background-color: #00F;
+    border-radius: 50%;
+}
+
+.single-product-sub-container-variant-price{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.single-product-order-description{
+    color: #000;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 80% */
+    letter-spacing: -0.4px;
+    margin-top: 59px;
+}
+
+.single-product-recalculate-price{
+    margin-top: 50px;
+    color: #9747FF;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 66.667% */
+    letter-spacing: -0.48px;
+    cursor: pointer;
+}
+
+.single-product-sub-container-variant-accurate-btn{
+    width: 526px;
+    height: 80px;
+    border-radius: 6px;
+    background: #9747FF;
+    color: #FFF;
+    font-family: Euclid Circular B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    border: none;
+    transition: 0.3s all ease-in-out;
+}
+
+.single-product-sub-container-variant-accurate-btn:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color:#9747FF;
+    border: 1px solid #9747FF;
+}
+
+.success-image{
+    background-image: url("../../assets/Products/success.jpg");
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+}
+
+.promo-verify-button{
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #000;
+    color:white;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+.promo-verify-button:hover{
+    background-color: white;
+    color:black;
+    border: 1px solid black;
+}
+
+@media screen and (min-width:1440px) and (max-width:1919px){
+    .single-product-container{
+        padding-left: 100px;
+    }
+    .single-product-sub-container{
+        padding-left: 50px;
+        padding-bottom: 50px;
+        width: 1300px;
+        height:max-content;
+        gap:100px;
+    }
+    .single-product-sub-container-one{
+        width: 350px;
+        height: 420px;
+    }
+    .single-product-sub-container-two-name{
+        font-size: 56px;
+    }
+    .single-product-sub-container-variant-name{
+        font-size: 28px;
+    }
+    .single-product-sub-container-variant-button{
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .single-product-sub-container-variant-color-heading{
+        font-size: 28px;
+    }
+    .single-product-sub-container-variant-color-one,.single-product-sub-container-variant-color-two,
+    .single-product-sub-container-variant-color-three,
+    .single-product-sub-container-variant-color-four{
+        height: 28px;
+        width: 28px;
+    }
+
+    .single-product-sub-container-variant-price{
+        font-size: 56px;
+    }
+
+    .single-product-sub-container-variant-accurate-btn{
+        width: 526px;
+        height: 60px;
+        border-radius: 6px;
+        background: #9747FF;
+        color: #FFF;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        border: none;
+    }
+    
+}
+
+@media screen and (min-width:1280px) and (max-width:1439px){
+    .single-product-container{
+        padding-left: 70px;
+    }
+    .single-product-sub-container{
+        padding-left: 50px;
+        width: 1100px;
+        height:600px;
+        gap:100px;
+    }
+    .single-product-sub-container-one{
+        width: 250px;
+        height: 300px;
+    }
+    .single-product-sub-container-two-name{
+        font-size: 56px;
+    }
+    .single-product-sub-container-variant-name{
+        font-size: 28px;
+    }
+    .single-product-sub-container-variant-button{
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .single-product-sub-container-variant-color-heading{
+        font-size: 28px;
+    }
+    .single-product-sub-container-variant-color-one,.single-product-sub-container-variant-color-two,
+    .single-product-sub-container-variant-color-three,
+    .single-product-sub-container-variant-color-four{
+        height: 28px;
+        width: 28px;
+    }
+
+    .single-product-sub-container-variant-price{
+        font-size: 56px;
+    }
+
+    .single-product-sub-container-variant-accurate-btn{
+        width: 526px;
+        height: 60px;
+        border-radius: 6px;
+        background: #9747FF;
+        color: #FFF;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        border: none;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1280px){
+    .single-product-container{
+        padding-left: 50px;
+    }
+    .single-product-sub-container{
+        padding-left: 20px;
+        width: 700px;
+        height:600px;
+        gap:10px;
+    }
+    .single-product-sub-container-one{
+        width: 200px;
+        height: 220px;
+    }
+    .single-product-sub-container-two-name{
+        font-size: 40px;
+    }
+    .single-product-sub-container-variant-name{
+        font-size: 24px;
+    }
+    .single-product-sub-container-variant-button{
+        width: 100px;
+        height: 50px;
+        font-size: 14px;
+    }
+    .single-product-sub-container-variant-color-heading{
+        font-size: 24px;
+    }
+    .single-product-sub-container-variant-color-one,.single-product-sub-container-variant-color-two,
+    .single-product-sub-container-variant-color-three,
+    .single-product-sub-container-variant-color-four{
+        height: 28px;
+        width: 28px;
+    }
+
+    .single-product-sub-container-variant-price{
+        font-size: 48px;
+    }
+
+    .single-product-sub-container-variant-accurate-btn{
+        width: 400px;
+        height: 60px;
+        border-radius: 6px;
+        background: #9747FF;
+        color: #FFF;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        border: none;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+    .single-product-variant-heading{
+        color: #181818;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: capitalize;
+    }
+    
+    .single-product-variant-sub-heading{
+        color: #000;
+        font-family: Montserrat;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; /* 100% */
+        letter-spacing: -0.48px;
+    }
+    .single-product-container{
+        padding-left: 20px;
+        margin-top: 5px;
+        padding-top: 20px;
+    }
+    .single-product-sub-container{
+        display: flex;
+        flex-direction: column;
+        gap:50px;
+    }
+    .single-product-sub-container{
+        margin-top: 10px;
+        padding-top: 10px;
+        padding-left: 20px;
+        width: 90%;
+        height:600px;
+        gap:10px;
+    }
+    .single-product-sub-container-one{
+        width: 150px;
+        height: 200px;
+    }
+    .single-product-sub-container-two{
+        gap:10px;
+    }
+    .single-product-sub-container-two-name{
+        font-size: 32px;
+    }
+    .single-product-sub-container-variant-name{
+        font-size: 18px;
+    }
+    .single-product-sub-container-variant-buttons-container{
+        gap:10px;
+    }
+    .single-product-sub-container-variant-button{
+        width: 70px;
+        height: 50px;
+        font-size: 12px;
+    }
+    .single-product-sub-container-variant-color-heading{
+        font-size: 18px;
+    }
+    .single-product-sub-container-variant-color-one,.single-product-sub-container-variant-color-two,
+    .single-product-sub-container-variant-color-three,
+    .single-product-sub-container-variant-color-four{
+        height: 20px;
+        width: 20px;
+    }
+
+    .single-product-sub-container-variant-price{
+        font-size: 32px;
+    }
+
+    .single-product-sub-container-variant-accurate-btn{
+        width: 80%;
+        height: max-content;
+        border-radius: 6px;
+        background: #9747FF;
+        color: #FFF;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        padding: 10px;
+        border: none;
+    }
+}
+
+@media(max-width:500px){
+    .single-product-sub-container{
+        margin-top:20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        width:90%;
+        height: max-content;
+        border-radius: 16px;
+        border: 1px solid #181818;
+        display: flex;
+        gap:5px;
+    }
+    .single-product-sub-container-two-name{
+        font-size: 16px;
+    }
+    .single-product-order-description{
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px; /* 80% */
+        letter-spacing: -0.4px;
+        margin-top: 20px;
+    }
+    .success-image{
+        background-image: url("../../assets/Products/success.jpg");
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+    }
+    .single-product-sub-container-variant-price{
+        color: #000;
+        font-family: Euclid Circular B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    
+}
