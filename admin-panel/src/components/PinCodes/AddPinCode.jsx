@@ -36,7 +36,7 @@ const AddPinCode = () => {
       setLoading(true);
       // Use Axios to add pin code
       const response = await axios.post(
-        "https://sellify-backend.onrender.com/pincode/create/pincode",
+        "http://localhost:5000/pincode/create/pincode",
         formData
       );
       setLoading(false);

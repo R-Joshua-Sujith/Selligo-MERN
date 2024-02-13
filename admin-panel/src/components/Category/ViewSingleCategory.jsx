@@ -22,9 +22,7 @@ const ViewSingleCategory = () => {
       try {
         setLoading(true);
         await axios
-          .get(
-            `https://sellify-backend.onrender.com/category/get-category/${id}`
-          )
+          .get(`http://localhost:5000/category/get-category/${id}`)
           .then((response) => {
             setLoading(false);
             setCategoryName(response.data.category_type);

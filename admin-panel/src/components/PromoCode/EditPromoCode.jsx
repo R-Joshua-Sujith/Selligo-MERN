@@ -21,7 +21,7 @@ const EditPromoCode = () => {
       console.log(id);
       try {
         await axios
-          .get(`https://sellify-backend.onrender.com/promo/promoCode/${id}`)
+          .get(`http://localhost:5000/promo/promoCode/${id}`)
           .then((response) => {
             setCode(response.data.code);
             setValue(response.data.discountAmount);
@@ -39,13 +39,10 @@ const EditPromoCode = () => {
     } else {
       setLoading(true);
       axios
-        .put(
-          `https://sellify-backend.onrender.com/promo/update/promocode/${id}`,
-          {
-            code: code,
-            discountAmount: value,
-          }
-        )
+        .put(`http://localhost:5000/promo/update/promocode/${id}`, {
+          code: code,
+          discountAmount: value,
+        })
         .then((res) => {
           setLoading(false);
           toast.success("Promo code updated Successfully");

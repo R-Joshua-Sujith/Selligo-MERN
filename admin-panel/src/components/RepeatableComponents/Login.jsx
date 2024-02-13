@@ -50,7 +50,7 @@ const Login = () => {
       return;
     } else {
       axios
-        .post("https://sellify-backend.onrender.com/auth/admin-login", {
+        .post("http://localhost:5000/auth/admin-login", {
           email,
           password,
         })

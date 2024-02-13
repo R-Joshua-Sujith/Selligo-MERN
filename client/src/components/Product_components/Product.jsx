@@ -45,9 +45,7 @@ const Product = () => {
         try {
           setLoading(true);
           await axios
-            .get(
-              `https://sellify-backend.onrender.com/product/get-products/${type}/${brand}`
-            )
+            .get(`http://localhost:5000/product/get-products/${type}/${brand}`)
             .then((response) => {
               setProductData(response.data);
               sessionStorage.setItem(
@@ -120,7 +118,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get(`https://sellify-backend.onrender.com/brand/series/${brand}/${type}`)
+      .get(`http://localhost:5000/brand/series/${brand}/${type}`)
       .then((response) => {
         console.log(response.data);
         setSeriesData(response.data);
@@ -133,9 +131,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/brand/models/${type}/${brand}/${seriesName}`
-      )
+      .get(`http://localhost:5000/brand/models/${type}/${brand}/${seriesName}`)
       .then((response) => {
         console.log(response.data);
         setModelData(response.data);
@@ -300,7 +296,7 @@ const Product = () => {
                 <div
                   className="product-container-items-image"
                   style={{
-                    backgroundImage: `url(https://sellify-backend.onrender.com/uploads/${encodeURIComponent(
+                    backgroundImage: `url(http://localhost:5000/uploads/${encodeURIComponent(
                       item.productImage
                     )})`,
                   }}

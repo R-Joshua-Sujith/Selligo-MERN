@@ -59,9 +59,7 @@ const AddProduct = () => {
   };
   useEffect(() => {
     axios
-      .get(
-        "https://sellify-backend.onrender.com/category/get-all-category-types"
-      )
+      .get("http://localhost:5000/category/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -73,9 +71,7 @@ const AddProduct = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/brand/brands-category/${categoryType}`
-      )
+      .get(`http://localhost:5000/brand/brands-category/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setBrandData(response.data);
@@ -88,9 +84,7 @@ const AddProduct = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/brand/series/${brandName}/${categoryType}`
-      )
+      .get(`http://localhost:5000/brand/series/${brandName}/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setSeriesData(response.data);
@@ -103,7 +97,7 @@ const AddProduct = () => {
   useEffect(() => {
     axios
       .get(
-        `https://sellify-backend.onrender.com/brand/models/${categoryType}/${brandName}/${seriesName}`
+        `http://localhost:5000/brand/models/${categoryType}/${brandName}/${seriesName}`
       )
       .then((response) => {
         console.log(response.data);
@@ -116,9 +110,7 @@ const AddProduct = () => {
   }, [categoryType, brandName, seriesName]);
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/category/api/category/${categoryType}`
-      )
+      .get(`http://localhost:5000/category/api/category/${categoryType}`)
       .then((response) => {
         const category = response.data;
         let dummyData = [];
@@ -212,15 +204,11 @@ const AddProduct = () => {
       // Append dynamicFields as JSON string (adjust based on your server expectations)
       formData.append("dynamicFields", JSON.stringify(options));
       await axios
-        .post(
-          "https://sellify-backend.onrender.com/product/create-products",
-          formData,
-          {
-            headers: {
-              "Content-type": "multipart/form-data",
-            },
-          }
-        )
+        .post("http://localhost:5000/product/create-products", formData, {
+          headers: {
+            "Content-type": "multipart/form-data",
+          },
+        })
         .then((res) => {
           fileInputRef.current.value = null;
           setAddLoading(false);

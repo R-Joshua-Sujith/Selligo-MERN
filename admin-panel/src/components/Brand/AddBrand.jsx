@@ -21,9 +21,7 @@ const AddBrand = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://sellify-backend.onrender.com/category/get-all-category-types"
-      )
+      .get("http://localhost:5000/category/get-all-category-types")
       .then((response) => {
         const initialSeriesState = {};
         response.data.forEach((category) => {
@@ -158,7 +156,7 @@ const AddBrand = () => {
 
       // Rest of your submit logic
       await axios
-        .post("https://sellify-backend.onrender.com/brand/add-brand", {
+        .post("http://localhost:5000/brand/add-brand", {
           brandName,
           brandImage,
           series,

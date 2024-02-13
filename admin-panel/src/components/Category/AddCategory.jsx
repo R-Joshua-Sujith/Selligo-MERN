@@ -173,7 +173,7 @@ const AddCategory = () => {
       }
       setLoadinng(true);
       await axios
-        .post("https://sellify-backend.onrender.com/category/add-category", {
+        .post("http://localhost:5000/category/add-category", {
           category_type,
           attributes,
           sections,

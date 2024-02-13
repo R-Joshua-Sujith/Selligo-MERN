@@ -54,7 +54,7 @@ const AddProduct = () => {
   };
   useEffect(() => {
     axios
-      .get("https://sellify-backend.onrender.com/get-all-category-types")
+      .get("http://localhost:5000/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -67,7 +67,7 @@ const AddProduct = () => {
   useEffect(() => {
     axios
       .get(
-        `https://sellify-backend.onrender.com/brands-category/${categoryType}`
+        `http://localhost:5000/brands-category/${categoryType}`
       )
       .then((response) => {
         console.log(response.data);
@@ -82,7 +82,7 @@ const AddProduct = () => {
   useEffect(() => {
     axios
       .get(
-        `https://sellify-backend.onrender.com/series/${brandName}/${categoryType}`
+        `http://localhost:5000/series/${brandName}/${categoryType}`
       )
       .then((response) => {
         console.log(response.data);
@@ -96,7 +96,7 @@ const AddProduct = () => {
   useEffect(() => {
     axios
       .get(
-        `https://sellify-backend.onrender.com/models/${categoryType}/${brandName}/${seriesName}`
+        `http://localhost:5000/models/${categoryType}/${brandName}/${seriesName}`
       )
       .then((response) => {
         console.log(response.data);
@@ -109,7 +109,7 @@ const AddProduct = () => {
   }, [categoryType, brandName, seriesName]);
   useEffect(() => {
     axios
-      .get(`https://sellify-backend.onrender.com/api/category/${categoryType}`)
+      .get(`http://localhost:5000/api/category/${categoryType}`)
       .then((response) => {
         const category = response.data;
         let dummyData = [];
@@ -203,7 +203,7 @@ const AddProduct = () => {
       formData.append("dynamicFields", JSON.stringify(options));
       await axios
         .post(
-          "https://sellify-backend.onrender.com/create-products",
+          "http://localhost:5000/create-products",
           formData,
           {
             headers: {

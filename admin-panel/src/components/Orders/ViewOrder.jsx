@@ -97,7 +97,7 @@ const ViewOrder = () => {
       const endDate = dateRange[1] ? `&endDate=${dateRange[1]}` : "";
 
       const response = await axios.get(
-        `https://sellify-backend.onrender.com/order/get-all-orders?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}${startDate}${endDate}`
+        `http://localhost:5000/order/get-all-orders?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}${startDate}${endDate}`
       );
 
       setData(response.data.data);
@@ -222,7 +222,7 @@ const ViewOrder = () => {
         setStatusLoading(true);
         // Send a PUT request to update the order status to 'processing'
         await axios.put(
-          `https://sellify-backend.onrender.com/order/api/orders/${selectedOrderId}/processing`
+          `http://localhost:5000/order/api/orders/${selectedOrderId}/processing`
         );
 
         // Fetch updated data after the status change
@@ -256,12 +256,9 @@ const ViewOrder = () => {
     try {
       setCancelLoading(true);
       // Send a PUT request to update the order status to 'cancel' and provide the cancellation reason
-      await axios.put(
-        `https://sellify-backend.onrender.com/order/${selectedOrderId}/cancel`,
-        {
-          cancellationReason,
-        }
-      );
+      await axios.put(`http://localhost:5000/order/${selectedOrderId}/cancel`, {
+        cancellationReason,
+      });
 
       // Fetch updated data after the status change
       fetchData();
@@ -359,7 +356,7 @@ const ViewOrder = () => {
       setCompleteLoading(true);
       // Send a POST request to complete the order with file data
       await axios.put(
-        `https://sellify-backend.onrender.com/order/api/orders/${selectedOrderId}/complete`,
+        `http://localhost:5000/order/api/orders/${selectedOrderId}/complete`,
         formData,
         {
           headers: {
@@ -410,7 +407,7 @@ const ViewOrder = () => {
     try {
       setExportLoading(true);
       const response = await axios.get(
-        `https://sellify-backend.onrender.com/order/get-all-orders?page=1&pageSize=${totalRows}&search=${searchQuery}${startDate}${endDate}`
+        `http://localhost:5000/order/get-all-orders?page=1&pageSize=${totalRows}&search=${searchQuery}${startDate}${endDate}`
       );
 
       const ordersData = response.data.data;

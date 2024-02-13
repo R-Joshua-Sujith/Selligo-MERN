@@ -18,7 +18,7 @@ const ViewSingleOrder = () => {
   const { id } = useParams();
   const getOrderData = async () => {
     await axios
-      .get(`https://sellify-backend.onrender.com/order/single-orders/${id}`)
+      .get(`http://localhost:5000/order/single-orders/${id}`)
       .then((res) => {
         console.log(res.data);
         setOrderData(res.data);
@@ -86,9 +86,7 @@ Options: ${optionsList.join(", ")}`;
 
   const downloadBill = async () => {
     await axios
-      .get(
-        `https://sellify-backend.onrender.com/order/api/orders/${id}/documents`
-      )
+      .get(`http://localhost:5000/order/api/orders/${id}/documents`)
       .then((res) => {
         console.log(res.data);
         const newWindow = window.open();
@@ -115,7 +113,7 @@ Options: ${optionsList.join(", ")}`;
 
       // Fetch JSON data from the backend
       const response = await fetch(
-        `https://sellify-backend.onrender.com/order/api/get-invoice-data/${id}`
+        `http://localhost:5000/order/api/get-invoice-data/${id}`
       );
       const invoiceData = await response.json();
       setInvoice(invoiceData);

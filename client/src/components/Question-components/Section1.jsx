@@ -42,7 +42,7 @@ const Section1 = () => {
       try {
         setLoading(true);
         await axios
-          .get(`https://sellify-backend.onrender.com/product/products/${id}`)
+          .get(`http://localhost:5000/product/products/${id}`)
           .then((response) => {
             setLoading(false);
             setProductData(response.data);
@@ -62,9 +62,7 @@ const Section1 = () => {
       try {
         setLoading(true);
         await axios
-          .get(
-            `https://sellify-backend.onrender.com/category/api/category/${type}`
-          )
+          .get(`http://localhost:5000/category/api/category/${type}`)
           .then((response) => {
             setLoading(false);
             localStorage.setItem(

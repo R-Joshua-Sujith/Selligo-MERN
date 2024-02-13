@@ -57,7 +57,7 @@ const Contact = () => {
 
         // Make an API request using Axios
         const response = await axios.post(
-          "https://sellify-backend.onrender.com/contact/create",
+          "http://localhost:5000/contact/create",
           formData
         );
         setLoading(false);

@@ -13,7 +13,7 @@ const ViewSingleAbundant = () => {
   const [userData, setUserData] = useState({});
   const getOrderData = async () => {
     await axios
-      .get(`https://sellify-backend.onrender.com/abundant/single-orders/${id}`)
+      .get(`http://localhost:5000/abundant/single-orders/${id}`)
       .then((res) => {
         console.log(res.data);
         setOrderData(res.data);
@@ -26,7 +26,7 @@ const ViewSingleAbundant = () => {
   };
   const getProfileData = async (req, res) => {
     await axios
-      .get(`https://sellify-backend.onrender.com/user/api/users/${phone}`)
+      .get(`http://localhost:5000/user/api/users/${phone}`)
       .then((res) => {
         setUserData(res.data);
       })

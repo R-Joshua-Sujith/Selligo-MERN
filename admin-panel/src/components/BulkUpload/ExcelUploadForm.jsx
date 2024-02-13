@@ -19,7 +19,7 @@ const ExcelUploadForm = () => {
 
     try {
       const response = await axios.post(
-        "https://sellify-backend.onrender.com/upload",
+        "http://localhost:5000/upload",
         formData
       );
 
@@ -36,9 +36,7 @@ const ExcelUploadForm = () => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch(
-        "https://sellify-backend.onrender.com/download"
-      );
+      const response = await fetch("http://localhost:5000/download");
       const blob = await response.blob();
       const url = window.URL.createObjectURL(new Blob([blob]));
       const a = document.createElement("a");

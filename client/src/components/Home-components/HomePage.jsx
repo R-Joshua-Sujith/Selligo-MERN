@@ -32,12 +32,9 @@ const HomePage = () => {
       dispatch({ type: "changeCity", newCity: city });
       setCityModalOpen(false);
       if (phone) {
-        axios.put(
-          `https://sellify-backend.onrender.com/user/api/users/${phone}/city`,
-          {
-            city,
-          }
-        );
+        axios.put(`http://localhost:5000/user/api/users/${phone}/city`, {
+          city,
+        });
       }
     }
     // Do something with the selected city
@@ -45,7 +42,7 @@ const HomePage = () => {
   const getCityData = async () => {
     setLoading(true);
     await axios
-      .get("https://sellify-backend.onrender.com/pincode/api/cityNames")
+      .get("http://localhost:5000/pincode/api/cityNames")
       .then((res) => {
         setLoading(false);
         setCity(res.data);
@@ -67,7 +64,7 @@ const HomePage = () => {
       try {
         if (phone) {
           const response = await axios.get(
-            `https://sellify-backend.onrender.com/user/api/users/${phone}/city`
+            `http://localhost:5000/user/api/users/${phone}/city`
           );
           if (response.data.city === "") {
             setTimeout(() => {

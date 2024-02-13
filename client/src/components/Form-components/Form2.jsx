@@ -79,7 +79,7 @@ const Form2 = () => {
 
       setLoading(true);
       await axios
-        .post("https://sellify-backend.onrender.com/order/create-order", {
+        .post("http://localhost:5000/order/create-order", {
           updatedOrderDetails,
         })
         .then((response) => {

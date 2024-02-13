@@ -62,12 +62,9 @@ const Nav = ({ onNav }) => {
       dispatch({ type: "changeCity", newCity: city });
       setCityModalOpen(false);
       if (phone) {
-        axios.put(
-          `https://sellify-backend.onrender.com/user/api/users/${phone}/city`,
-          {
-            city,
-          }
-        );
+        axios.put(`http://localhost:5000/user/api/users/${phone}/city`, {
+          city,
+        });
       }
     }
     // Do something with the selected city
@@ -75,7 +72,7 @@ const Nav = ({ onNav }) => {
   const getCityData = async () => {
     setLoading(true);
     await axios
-      .get("https://sellify-backend.onrender.com/pincode/api/cityNames")
+      .get("http://localhost:5000/pincode/api/cityNames")
       .then((res) => {
         setLoading(false);
         setCity(res.data);
@@ -90,9 +87,7 @@ const Nav = ({ onNav }) => {
   const getMobileOptions = async () => {
     setLoading(true);
     await axios
-      .get(
-        "https://sellify-backend.onrender.com/brand/brands-category-menu/mobile"
-      )
+      .get("http://localhost:5000/brand/brands-category-menu/mobile")
       .then((res) => {
         setLoading(false);
         console.log(res.data);

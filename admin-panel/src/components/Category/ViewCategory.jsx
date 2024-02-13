@@ -84,9 +84,7 @@ const ViewCategory = () => {
   ];
   const getCategoryData = async () => {
     await axios
-      .get(
-        "https://sellify-backend.onrender.com/category/get-all-category-types"
-      ) // replace with your actual API endpoint
+      .get("http://localhost:5000/category/get-all-category-types") // replace with your actual API endpoint
       .then((response) => {
         // Set the data
         setData(response.data);
@@ -110,9 +108,7 @@ const ViewCategory = () => {
     try {
       const id = deleteConfirmation.categoryId;
       await axios
-        .delete(
-          `https://sellify-backend.onrender.com/category/delete-category/${id}`
-        )
+        .delete(`http://localhost:5000/category/delete-category/${id}`)
         .then((res) => {
           toast.info(res.data.message);
           getCategoryData();

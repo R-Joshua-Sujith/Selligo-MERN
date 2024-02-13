@@ -105,7 +105,7 @@ const ViewUser = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://sellify-backend.onrender.com/user/get-all-userss?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
+        `http://localhost:5000/user/get-all-userss?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}`
       );
       setData(response.data.data);
       setTotalRows(response.data.totalRows);
@@ -189,7 +189,7 @@ const ViewUser = () => {
     try {
       setExportLoading(true);
       const response = await axios.get(
-        `https://sellify-backend.onrender.com/user/get-all-users?page=1&pageSize=${totalRows}&search=${searchQuery}`
+        `http://localhost:5000/user/get-all-users?page=1&pageSize=${totalRows}&search=${searchQuery}`
       );
 
       const usersData = response.data.data;
@@ -254,7 +254,7 @@ const ViewUser = () => {
     try {
       const id = deleteConfirmation.userId;
       await axios
-        .delete(`https://sellify-backend.onrender.com/user/delete/users/${id}`)
+        .delete(`http://localhost:5000/user/delete/users/${id}`)
         .then((res) => {
           fetchData();
           setDeleteConfirmation({ isOpen: false, userId: null });

@@ -22,7 +22,7 @@ const EditPinCode = () => {
       try {
         setPinCodeLoading(true);
         await axios
-          .get(`https://sellify-backend.onrender.com/pincode/get-pincode/${id}`)
+          .get(`http://localhost:5000/pincode/get-pincode/${id}`)
           .then((response) => {
             setPinCodeLoading(false);
             setStateName(response.data.stateName);
@@ -59,7 +59,7 @@ const EditPinCode = () => {
       setLoading(true);
       // Use Axios to add pin code
       const response = await axios.put(
-        `https://sellify-backend.onrender.com/pincode/update-pincode/${id}`,
+        `http://localhost:5000/pincode/update-pincode/${id}`,
         formData
       );
       setLoading(false);

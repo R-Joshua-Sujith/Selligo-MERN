@@ -36,7 +36,7 @@ const Form = () => {
   const getUserData = async () => {
     setLoading(true);
     await axios
-      .get(`https://sellify-backend.onrender.com/user/api/users/${phone}`)
+      .get(`http://localhost:5000/user/api/users/${phone}`)
       .then((res) => {
         setLoading(false);
         const existingOrders = JSON.parse(localStorage.getItem("orders"));
@@ -132,7 +132,7 @@ const Form = () => {
                     try {
                       setLoading(true);
                       const response = await axios.get(
-                        `https://sellify-backend.onrender.com/pincode/check-pincode/${zipCode}`
+                        `http://localhost:5000/pincode/check-pincode/${zipCode}`
                       );
 
                       const pincodeExists = response.data.pincodeExists;
@@ -155,7 +155,7 @@ const Form = () => {
 
                         await axios
                           .post(
-                            `https://sellify-backend.onrender.com/user/api/users/${phone}`,
+                            `http://localhost:5000/user/api/users/${phone}`,
                             {
                               firstName,
                               lastName,
@@ -242,7 +242,7 @@ const Form = () => {
                   try {
                     setLoading(true);
                     const response = await axios.get(
-                      `https://sellify-backend.onrender.com/pincode/check-pincode/${zipCode}`
+                      `http://localhost:5000/pincode/check-pincode/${zipCode}`
                     );
 
                     const pincodeExists = response.data.pincodeExists;
@@ -264,18 +264,15 @@ const Form = () => {
                       };
 
                       await axios
-                        .post(
-                          `https://sellify-backend.onrender.com/user/api/users/${phone}`,
-                          {
-                            firstName,
-                            lastName,
-                            email,
-                            addPhone,
-                            address,
-                            zipCode,
-                            city,
-                          }
-                        )
+                        .post(`http://localhost:5000/user/api/users/${phone}`, {
+                          firstName,
+                          lastName,
+                          email,
+                          addPhone,
+                          address,
+                          zipCode,
+                          city,
+                        })
                         .then((res) => {
                           setLoading(false);
                           console.log("data saved");

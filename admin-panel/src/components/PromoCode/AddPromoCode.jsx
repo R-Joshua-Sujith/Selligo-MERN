@@ -19,7 +19,7 @@ const AddPromoCode = () => {
     } else {
       setLoading(true);
       await axios
-        .post("https://sellify-backend.onrender.com/promo/create/promocode", {
+        .post("http://localhost:5000/promo/create/promocode", {
           code: code,
           discountAmount: value,
         })

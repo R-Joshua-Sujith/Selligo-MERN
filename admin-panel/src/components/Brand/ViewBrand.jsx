@@ -84,7 +84,7 @@ const ViewBrand = () => {
   ];
   const getProduct = async () => {
     await axios
-      .get("https://sellify-backend.onrender.com/brand/brands") // replace with your actual API endpoint
+      .get("http://localhost:5000/brand/brands") // replace with your actual API endpoint
       .then((response) => {
         // Set the data
         setData(response.data);
@@ -101,7 +101,7 @@ const ViewBrand = () => {
   // const deleteBrand = async (id) => {
   //   try {
   //     await axios
-  //       .delete(`https://sellify-backend.onrender.com/delete-brand/${id}`)
+  //       .delete(`http://localhost:5000/delete-brand/${id}`)
   //       .then((res) => {
   //         alert(res.data.message);
   //       });
@@ -118,7 +118,7 @@ const ViewBrand = () => {
     try {
       const id = deleteConfirmation.brandId;
       await axios
-        .delete(`https://sellify-backend.onrender.com/brand/delete-brand/${id}`)
+        .delete(`http://localhost:5000/brand/delete-brand/${id}`)
         .then((res) => {
           getProduct();
           toast.info(res.data.message);

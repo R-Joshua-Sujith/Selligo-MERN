@@ -168,7 +168,7 @@ const AddCategory = () => {
       }
 
       await axios
-        .post("https://sellify-backend.onrender.com/add-category", {
+        .post("http://localhost:5000/add-category", {
           category_type,
           attributes,
           sections,

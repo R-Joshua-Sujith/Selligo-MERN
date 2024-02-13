@@ -10,7 +10,7 @@ const DownloadTemplate = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://sellify-backend.onrender.com/generate-excel/${categoryType}`,
+        `http://localhost:5000/generate-excel/${categoryType}`,
         {
           responseType: "arraybuffer",
         }

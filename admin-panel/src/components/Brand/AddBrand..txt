@@ -21,7 +21,7 @@ const AddBrand = () => {
 
   useEffect(() => {
     axios
-      .get("https://sellify-backend.onrender.com/get-all-category-types")
+      .get("http://localhost:5000/get-all-category-types")
       .then((response) => {
         setOptions(response.data);
       })
@@ -161,7 +161,7 @@ const AddBrand = () => {
     //     return;
     //   }
 
-    //   await axios.post("https://sellify-backend.onrender.com/add-brand", {
+    //   await axios.post("http://localhost:5000/add-brand", {
     //     brandName,
     //     brandImage,
     //     categoryType: checkedItems,

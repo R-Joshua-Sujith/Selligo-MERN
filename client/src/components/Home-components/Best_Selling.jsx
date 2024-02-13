@@ -20,9 +20,7 @@ const Best_Selling = () => {
     try {
       setLoading(true);
       await axios
-        .get(
-          `https://sellify-backend.onrender.com/category/get-all-category-types`
-        )
+        .get(`http://localhost:5000/category/get-all-category-types`)
         .then((response) => {
           console.log(response.data);
           setCategoryType(response.data[0].category_type);
@@ -35,7 +33,7 @@ const Best_Selling = () => {
   const getProductData = async () => {
     await axios
       .get(
-        `https://sellify-backend.onrender.com/product/best-selling-products/${categoryType}`
+        `http://localhost:5000/product/best-selling-products/${categoryType}`
       )
       .then((res) => {
         setLoading(false);
@@ -122,7 +120,7 @@ const Best_Selling = () => {
                 <div
                   className="best-selling-product-image-container"
                   style={{
-                    backgroundImage: `url(https://sellify-backend.onrender.com/uploads/${encodeURIComponent(
+                    backgroundImage: `url(http://localhost:5000/uploads/${encodeURIComponent(
                       item.productImage
                     )})`,
                   }}

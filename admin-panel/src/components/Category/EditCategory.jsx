@@ -26,7 +26,7 @@ const EditCategory = () => {
     try {
       setLoading(true);
       await axios
-        .get(`https://sellify-backend.onrender.com/category/get-category/${id}`)
+        .get(`http://localhost:5000/category/get-category/${id}`)
         .then((response) => {
           setLoading(false);
           setCategoryName(response.data.category_type);
@@ -187,14 +187,11 @@ const EditCategory = () => {
       }
       setEditLoading(true);
       await axios
-        .put(
-          `https://sellify-backend.onrender.com/category/updateCategory/${id}`,
-          {
-            category_type,
-            attributes,
-            sections,
-          }
-        )
+        .put(`http://localhost:5000/category/updateCategory/${id}`, {
+          category_type,
+          attributes,
+          sections,
+        })
         .then((res) => {
           setEditLoading(false);
           toast.success(res.data.message);

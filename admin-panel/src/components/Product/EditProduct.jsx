@@ -52,7 +52,7 @@ const EditProduct = () => {
     try {
       setLoading(true);
       await axios
-        .get(`https://sellify-backend.onrender.com/product/products/${id}`)
+        .get(`http://localhost:5000/product/products/${id}`)
         .then((response) => {
           console.log(response.data);
           setLoading(false);
@@ -65,7 +65,7 @@ const EditProduct = () => {
           setOptions(response.data.dynamicFields);
           setBestSelling(response.data.bestSelling);
           setImageUrl(
-            `https://sellify-backend.onrender.com/uploads/${response.data.productImage}`
+            `http://localhost:5000/uploads/${response.data.productImage}`
           );
         });
     } catch (err) {
@@ -80,7 +80,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     axios
-      .get("https://sellify-backend.onrender.com/get-all-category-types")
+      .get("http://localhost:5000/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -92,9 +92,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/brands-category/${categoryType}`
-      )
+      .get(`http://localhost:5000/brands-category/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setBrandData(response.data);
@@ -107,9 +105,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/series/${brandName}/${categoryType}`
-      )
+      .get(`http://localhost:5000/series/${brandName}/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setSeriesData(response.data);
@@ -158,19 +154,16 @@ const EditProduct = () => {
       setEditLoading(true);
 
       await axios
-        .put(
-          `https://sellify-backend.onrender.com/product/update-product/${id}`,
-          {
-            categoryType,
-            basePrice,
-            variant,
-            brandName,
-            seriesName,
-            model,
-            dynamicFields: JSON.stringify(options),
-            bestSelling,
-          }
-        )
+        .put(`http://localhost:5000/product/update-product/${id}`, {
+          categoryType,
+          basePrice,
+          variant,
+          brandName,
+          seriesName,
+          model,
+          dynamicFields: JSON.stringify(options),
+          bestSelling,
+        })
         .then((res) => {
           setEditLoading(false);
           toast.success("Product Edited Successfully");
@@ -215,7 +208,7 @@ const EditProduct = () => {
       formData.append("productImage", productImage);
 
       await axios.put(
-        `https://sellify-backend.onrender.com/product/update-product-image/${id}`,
+        `http://localhost:5000/product/update-product-image/${id}`,
         formData,
         {
           headers: {

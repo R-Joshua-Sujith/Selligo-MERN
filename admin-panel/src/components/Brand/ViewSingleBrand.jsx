@@ -21,9 +21,7 @@ const ViewSingleBrand = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://sellify-backend.onrender.com/category/get-all-category-types"
-      )
+      .get("http://localhost:5000/category/get-all-category-types")
       .then((response) => {
         setOptions(response.data);
       })
@@ -36,7 +34,7 @@ const ViewSingleBrand = () => {
     const getBrandData = async () => {
       try {
         await axios
-          .get(`https://sellify-backend.onrender.com/brand/brands/${id}`)
+          .get(`http://localhost:5000/brand/brands/${id}`)
           .then((response) => {
             setBrandName(response.data.brandName);
             setBrandImage(response.data.brandImage);

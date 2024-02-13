@@ -33,7 +33,7 @@ const ViewSingleProduct = () => {
     const getProductData = async () => {
       try {
         await axios
-          .get(`https://sellify-backend.onrender.com/product/products/${id}`)
+          .get(`http://localhost:5000/product/products/${id}`)
           .then((response) => {
             setBasePrice(response.data.basePrice);
             setProductImage(response.data.productImage);
@@ -54,7 +54,7 @@ const ViewSingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get("https://sellify-backend.onrender.com/get-all-category-types")
+      .get("http://localhost:5000/get-all-category-types")
       .then((response) => {
         console.log(response.data);
         setCategoryData(response.data);
@@ -66,9 +66,7 @@ const ViewSingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/brands-category/${categoryType}`
-      )
+      .get(`http://localhost:5000/brands-category/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setBrandData(response.data);
@@ -81,9 +79,7 @@ const ViewSingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://sellify-backend.onrender.com/series/${brandName}/${categoryType}`
-      )
+      .get(`http://localhost:5000/series/${brandName}/${categoryType}`)
       .then((response) => {
         console.log(response.data);
         setSeriesData(response.data);

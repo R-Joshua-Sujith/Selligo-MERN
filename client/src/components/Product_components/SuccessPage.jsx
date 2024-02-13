@@ -24,7 +24,7 @@ const SuccessPage = () => {
       try {
         setLoading(true);
         await axios
-          .get(`https://sellify-backend.onrender.com/product/products/${id}`)
+          .get(`http://localhost:5000/product/products/${id}`)
           .then((response) => {
             setLoading(false);
             console.log(response.data);
@@ -51,7 +51,7 @@ const SuccessPage = () => {
           <div
             className="single-product-sub-container-one"
             style={{
-              backgroundImage: `url(https://sellify-backend.onrender.com/uploads/${encodeURIComponent(
+              backgroundImage: `url(http://localhost:5000/uploads/${encodeURIComponent(
                 productData.productImage
               )})`,
             }}

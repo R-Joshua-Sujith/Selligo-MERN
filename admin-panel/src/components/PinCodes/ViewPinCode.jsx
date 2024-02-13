@@ -65,7 +65,7 @@ const ViewPinCode = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://sellify-backend.onrender.com/pincode/get-all-pincodes?page=${currentPage}&pageSize=${pageSize}`
+        `http://localhost:5000/pincode/get-all-pincodes?page=${currentPage}&pageSize=${pageSize}`
       );
       console.log(response.data);
       setData(response.data.data);
@@ -133,9 +133,7 @@ const ViewPinCode = () => {
     try {
       const id = deleteConfirmation.pincodeId;
       await axios
-        .delete(
-          `https://sellify-backend.onrender.com/pincode/delete-pincode/${id}`
-        )
+        .delete(`http://localhost:5000/pincode/delete-pincode/${id}`)
         .then((res) => {
           toast.info(res.data.message);
           setDeleteConfirmation({ isOpen: false, pincodeId: null });
@@ -205,7 +203,7 @@ const ViewPinCode = () => {
                           // onClick={async () => {
                           //   await axios
                           //     .delete(
-                          //       `https://sellify-backend.onrender.com/delete-pincode/${row._id}`
+                          //       `http://localhost:5000/delete-pincode/${row._id}`
                           //     )
                           //     .then((res) => {
                           //       toast.info("Deleted Successfully");

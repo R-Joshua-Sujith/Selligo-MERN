@@ -33,7 +33,7 @@ const SingleProduct = () => {
       try {
         setLoading(true);
         await axios
-          .get(`https://sellify-backend.onrender.com/product/products/${id}`)
+          .get(`http://localhost:5000/product/products/${id}`)
           .then((response) => {
             setLoading(false);
             setProductData(response.data);
@@ -68,25 +68,19 @@ const SingleProduct = () => {
             const city = localStorage.getItem("selectedCity") || "";
 
             console.log("Total Value:", totalValue);
-            axios.post(
-              "https://sellify-backend.onrender.com/abundant/create-abundant-order",
-              {
-                phone,
-                city: city,
-                options: selectedOptions,
-                productDetails: {
-                  productName: `${response.data.model} ${response.data.variant}`,
-                  price: totalValue + response.data.basePrice,
-                },
-              }
-            );
+            axios.post("http://localhost:5000/abundant/create-abundant-order", {
+              phone,
+              city: city,
+              options: selectedOptions,
+              productDetails: {
+                productName: `${response.data.model} ${response.data.variant}`,
+                price: totalValue + response.data.basePrice,
+              },
+            });
             if (city) {
-              axios.put(
-                `https://sellify-backend.onrender.com/user/api/users/${email}/city`,
-                {
-                  city,
-                }
-              );
+              axios.put(`http://localhost:5000/user/api/users/${email}/city`, {
+                city,
+              });
             }
           });
       } catch (err) {
@@ -155,7 +149,7 @@ const SingleProduct = () => {
     try {
       setVerifyLoading(true);
       const response = await axios.post(
-        "https://sellify-backend.onrender.com/promo/check/promocode",
+        "http://localhost:5000/promo/check/promocode",
         {
           enteredCode: code,
           phone: phone,
@@ -185,7 +179,7 @@ const SingleProduct = () => {
           <div
             className="single-product-sub-container-one"
             style={{
-              backgroundImage: `url(https://sellify-backend.onrender.com/uploads/${encodeURIComponent(
+              backgroundImage: `url(http://localhost:5000/uploads/${encodeURIComponent(
                 productData.productImage
               )})`,
             }}

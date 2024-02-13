@@ -35,7 +35,7 @@ const Login2 = () => {
     } else {
       setLoading(true);
       await axios
-        .post("https://sellify-backend.onrender.com/user/send-sms", {
+        .post("http://localhost:5000/user/send-sms", {
           mobileNumber: phone,
         })
         .then((res) => {
@@ -58,7 +58,7 @@ const Login2 = () => {
     } else {
       setLoading2(true);
       await axios
-        .post("https://sellify-backend.onrender.com/user/sms-login", {
+        .post("http://localhost:5000/user/sms-login", {
           phone: phone,
           otp,
         })

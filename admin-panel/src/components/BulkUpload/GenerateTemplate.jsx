@@ -19,7 +19,7 @@ const GenerateTemplate = () => {
 
     try {
       const response = await axios.post(
-        "https://sellify-backend.onrender.com/api/products/bulk-upload",
+        "http://localhost:5000/api/products/bulk-upload",
         formData
       );
 
@@ -37,7 +37,7 @@ const GenerateTemplate = () => {
   const handleBulkDownload = async () => {
     try {
       const response = await axios.get(
-        "https://sellify-backend.onrender.com/api/products/bulk-download/watch",
+        "http://localhost:5000/api/products/bulk-download/watch",
         { responseType: "blob" }
       );
 

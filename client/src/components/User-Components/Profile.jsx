@@ -25,7 +25,7 @@ const Profile = () => {
   const getUserData = async () => {
     setLoading(true);
     await axios
-      .get(`https://sellify-backend.onrender.com/user/api/users/${phone}`)
+      .get(`http://localhost:5000/user/api/users/${phone}`)
       .then((res) => {
         console.log(res.data);
         setLoading(false);
@@ -116,14 +116,14 @@ const Profile = () => {
                       try {
                         setSaveLoading(true);
                         const response = await axios.get(
-                          `https://sellify-backend.onrender.com/pincode/check-pincode/${zipCode}`
+                          `http://localhost:5000/pincode/check-pincode/${zipCode}`
                         );
 
                         const pincodeExists = response.data.pincodeExists;
                         if (pincodeExists) {
                           axios
                             .post(
-                              `https://sellify-backend.onrender.com/user/api/users/${phone}`,
+                              `http://localhost:5000/user/api/users/${phone}`,
                               {
                                 firstName,
                                 lastName,
