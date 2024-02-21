@@ -9,12 +9,7 @@ import { toast } from "react-toastify";
 
 const Thankyou = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    toast.info("Page will be redirected in 5 seconds");
-    setTimeout(() => {
-      navigate("/orders");
-    }, 5000);
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div className="success-page-container">
       <div className="success-image-container">
