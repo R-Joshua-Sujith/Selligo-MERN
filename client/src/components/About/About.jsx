@@ -17,15 +17,13 @@ const About = () => {
           <div className="about-us-content">
             <div className="about-us-heading">YOU</div>
             <div className="about-us-heading-description">
-              Welcome to Sellify, our mission is to transform the way people
-              sell their old gadgets online. It allows you to sell Mobile
-              Phones, iPads, Tablets & watches in exchange for instant cash at
-              your doorstep. We're dedicated to providing you the very best
-              price for your old gadget with the least amount of efforts using
-              our website and app, with an emphasis on through our localized
-              network of professional buyers across the city, we make sure you
-              are able to sell your old or used gadgets in the fastest way
-              possible and get the best customer experience. It's this simple.
+              Welcome to Selligo, where we're revolutionizing the way you sell
+              your old gadgets online. Our mission is simple: to provide you
+              with a hassle-free experience that gets you the best price for
+              your devices, right at your doorstep. Whether it's mobile phones,
+              iPads, tablets, or watches, we've got you covered. With Selligo,
+              selling your old gadgets is easier than ever. Our website
+              streamline the process, ensuring minimal effort on your part.
             </div>
             <div className="about-us-heading-black">WITH</div>
           </div>
@@ -33,15 +31,13 @@ const About = () => {
         </div>
         <div className="about-us-heading-black">MUCH LOVE</div>
         <div className="about-us-description">
-          We believe in offering a complete solution wherein customers can sell
-          old or used gadgets hassle-free. Going forward with the motto "one
-          man's waste could be another's resource", Cashmen enables the
-          customers to sell their old gadgets online and get instant cash along
-          with free home/office/residential pick up. From getting a customer's
-          request till making the final payment everything is aimed to be
-          providing the best most convenient and secure solutions, providing the
-          best way possible to sell your used gadgets online and get instant
-          cash.
+          Through our extensive network of professional buyers spanning across
+          the city, we guarantee a quick turnaround time, so you can get cash
+          for your gadgets in no time. Our commitment to you is unmatched. We
+          prioritize customer satisfaction above all else, ensuring that your
+          experience with Selligo is nothing short of exceptional. So why wait?
+          Join us today and experience the future of gadget selling with
+          Selligo.
         </div>
 
         <iframe

@@ -99,7 +99,7 @@ const ViewOrder = () => {
       const response = await axios.get(
         `https://api.selligo.in/order/get-all-orders?page=${currentPage}&pageSize=${pageSize}&search=${searchQuery}${startDate}${endDate}`
       );
-
+      console.log(response.data.data);
       setData(response.data.data);
       setTotalRows(response.data.totalRows);
     } catch (error) {
@@ -171,7 +171,11 @@ const ViewOrder = () => {
       width: 150,
       valueGetter: (params) => params.row?.zipCode || "",
     },
-    ,
+    {
+      field: "createdAt",
+      headerName: "Created At",
+      width: 150,
+    },
     {
       field: "status",
       headerName: "Status",
@@ -566,6 +570,14 @@ const ViewOrder = () => {
                       ).toLocaleDateString() || ""}
                     </td>
                     <td>{row?.scheduledPickup.pickupTime || ""}</td>
+                    <td style={{ width: "120px" }}>
+                      {new Date(row?.createdAt).toLocaleDateString()}{" "}
+                      {new Date(row?.createdAt).toLocaleTimeString([], {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                    </td>
+
                     <td>
                       <div className="icon-change-container">
                         <span

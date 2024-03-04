@@ -12,8 +12,8 @@ const How = () => {
             Select Your Product which you want to sell{" "}
           </div>
           <div className="how-component-description">
-            From the list of available options select product which you want to
-            sell us
+            Select the condition, age of your device, and choose your pick up
+            date and time and exact location to place the order .
           </div>
           <button
             className="how-component-btn"
@@ -21,7 +21,7 @@ const How = () => {
               navigate("/mobile");
             }}
           >
-            Show Products
+            Sell Now
           </button>
         </div>
         <div className="how-component-image"></div>
@@ -35,8 +35,10 @@ const How = () => {
             Partner pickup in less time{" "}
           </div>
           <div className="how-component-description">
-            wait for a guy who comes like this and asks to show your old mobile.
-            don’t worry he is our pickup partner!
+            Selligo tries to get the pickup done with in the next 2 hours after
+            placing the order, except sunday or public holidays . We offer you a
+            free pickup at your your door step to sell your old / used device to
+            us and choose a convenient pickup date and time.
           </div>
           <button
             className="how-component-btn"
@@ -44,7 +46,7 @@ const How = () => {
               navigate("/mobile");
             }}
           >
-            Show Products
+            Sell Now
           </button>
         </div>
       </div>

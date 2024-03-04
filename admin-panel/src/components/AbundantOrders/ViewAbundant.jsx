@@ -143,7 +143,7 @@ const ViewAbundant = () => {
     },
     {
       field: "createdAt",
-      headerName: "Date",
+      headerName: "Created At",
       width: 150,
       valueGetter: (params) => params.row?.status || "",
       renderCell: (params) => (
@@ -524,7 +524,11 @@ const ViewAbundant = () => {
                     <td>{row.productDetails?.price || ""}</td>
 
                     <td>
-                      {new Date(row?.createdAt).toLocaleDateString() || ""}
+                      {new Date(row?.createdAt).toLocaleDateString() || ""}{" "}
+                      {new Date(row?.createdAt).toLocaleTimeString([], {
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
                     </td>
 
                     <td

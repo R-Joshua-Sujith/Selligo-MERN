@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import Footer2 from "../repeatable-components/Footer2";
 import ProductTemplate from "./ProductTemplate";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 const Product = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
@@ -240,8 +241,33 @@ const Product = () => {
             />
           </div>
         </div>
+        <div className="series-main-container">
+          <div
+            className="series-item"
+            onClick={() => {
+              setSeriesName("");
+              setModel("");
+              setSearchTerm("");
+            }}
+          >
+            {seriesName === "" ? "✅" : ""}
+            All
+          </div>
+          {seriesData.map((item) => (
+            <div
+              className="series-item"
+              onClick={() => {
+                setSeriesName(item === "All" ? "" : `${item}`);
+                setModel("");
+                setSearchTerm("");
+              }}
+            >
+              {seriesName === item ? "✅" : ""} {item}
+            </div>
+          ))}
+        </div>
         <div className="product-container-sub-heading">
-          <FormControl
+          {/* <FormControl
             fullWidth
             sx={{
               ml: 2,
@@ -263,7 +289,7 @@ const Product = () => {
                 <MenuItem value={item}>{item}</MenuItem>
               ))}
             </Select>
-          </FormControl>
+          </FormControl> */}
           <FormControl
             fullWidth
             sx={{ ml: 2, width: 200, maxWidth: { xs: 100, md: 200 } }}

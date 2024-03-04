@@ -256,6 +256,7 @@ router.get('/get-all-orders', async (req, res) => {
                 { zipCode: { $regex: search, $options: 'i' } },
                 { city: { $regex: search, $options: 'i' } },
                 { status: { $regex: search, $options: 'i' } },
+                { 'productDetails.productName': { $regex: search, $options: 'i' } },
 
             ];
         }
@@ -268,7 +269,7 @@ router.get('/get-all-orders', async (req, res) => {
         }
 
         const allOrders = await OrderModel.find(query)
-            .select('orderID firstName phone productDetails.productName productDetails.price status zipCode city scheduledPickup.pickupDate scheduledPickup.pickupTime email promoPrice')
+            .select('orderID firstName phone productDetails.productName productDetails.price status zipCode city scheduledPickup.pickupDate scheduledPickup.pickupTime email promoPrice createdAt')
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(parseInt(pageSize));

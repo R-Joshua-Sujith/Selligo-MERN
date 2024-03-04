@@ -33,8 +33,10 @@ router.get('/get-all-orders', async (req, res) => {
 
         if (search) {
             query.$or = [
+                { phone: { $regex: search, $options: 'i' } },
                 { email: { $regex: search, $options: 'i' } },
                 { city: { $regex: search, $options: 'i' } },
+                { 'productDetails.productName': { $regex: search, $options: 'i' } },
             ];
         }
 
