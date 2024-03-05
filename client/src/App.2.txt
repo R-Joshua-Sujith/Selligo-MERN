@@ -1,0 +1,78 @@
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const HomePage = lazy(() => import("./components/Home-components/HomePage"));
+const BrandPage = lazy(() => import("./components/Brand-components/BrandPage"));
+const ProductPage = lazy(() =>
+  import("./components/Product_components/ProductPage")
+);
+const SingleProductPage = lazy(() =>
+  import("./components/Product_components/SingleProductPage")
+);
+const Section1Page = lazy(() =>
+  import("./components/Question-components/Section1Page")
+);
+const Section2Page = lazy(() =>
+  import("./components/Question-components/Section2Page")
+);
+const Section3Page = lazy(() =>
+  import("./components/Question-components/Section3Page")
+);
+const Section4Page = lazy(() =>
+  import("./components/Question-components/Section4Page")
+);
+const FormPage = lazy(() => import("./components/Form-components/FormPage"));
+const Form2Page = lazy(() => import("./components/Form-components/Form2Page"));
+const Login = lazy(() => import("./components/Login/Login"));
+const Login2 = lazy(() => import("./components/Login/Login2"));
+const Orders = lazy(() => import("./components/Order-components/Orders"));
+const ContactPage = lazy(() =>
+  import("./components/repeatable-components/ContactPage")
+);
+const Profile = lazy(() => import("./components/User-Components/Profile"));
+const SuccessPage = lazy(() =>
+  import("./components/Product_components/SuccessPage")
+);
+const Thankyou = lazy(() => import("./components/Product_components/Thankyou"));
+const FaqPage = lazy(() => import("./components/Home-components/FaqPage"));
+const About = lazy(() => import("./components/About/About"));
+const BlogsPage = lazy(() => import("./components/Home-components/BlogsPage"));
+const SectionTemplate = lazy(() =>
+  import("./components/Question-components/SectionTemplate")
+);
+
+import Template from "./components/repeatable-components/Template";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<Template />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:categoryType" element={<BrandPage />} />
+          <Route path="/:type/:brand" element={<ProductPage />} />
+          <Route path="/:type/placeOrder/:id" element={<SingleProductPage />} />
+          <Route path="/:type/section-1/:id" element={<Section1Page />} />
+          <Route path="/:type/section-2/:id" element={<Section2Page />} />
+          <Route path="/:type/section-3/:id" element={<Section3Page />} />
+          <Route path="/:type/section-4/:id" element={<Section4Page />} />
+          <Route path="/form/:id" element={<FormPage />} />
+          <Route path="/form2/:id" element={<Form2Page />} />
+          <Route path="/login/:id/:type" element={<Login />} />
+          <Route path="/sellify-login" element={<Login2 />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/success/:id" element={<SuccessPage />} />
+          <Route path="/thank-you" element={<Thankyou />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/blogs/:id" element={<BlogsPage />} />
+          <Route path="/template" element={<SectionTemplate />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
+}
+
+export default App;

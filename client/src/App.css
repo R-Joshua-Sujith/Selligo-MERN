@@ -1,3 +1,832 @@
 a{
     cursor: pointer;
 }
+
+@media(min-width:1921px){
+    .home-loader{
+        width: 1920px;
+        margin: 0 auto;
+    }
+}
+
+.location-mobile{
+   position: absolute;
+   left:-150%;
+   top:10%;
+    color:white;
+    display: none;
+}   
+
+
+
+.home-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Home-section{
+    background-image: url("../../assets/Home/Home-bg.jpg");
+    height: 100vh;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.phone-one{
+    position: absolute;
+    background-image: url("../../assets/Home/phone-one.png");
+    width: 686px;
+    height: 686px;
+    background-size: cover;
+    top:-30%;
+    left:-20%;
+    display: none;
+}
+
+.phone-two{
+    position: absolute;
+    background-image: url("../../assets/Home/phone-two.png");
+    width: 686px;
+    height: 686px;
+    background-size: cover;
+    top:-30%;
+    right:-20%;
+    display: none;
+}
+
+.phone-three{
+    position: absolute;
+    background-image: url("../../assets/Home/phone-three.png");
+    width: 686px;
+    height: 686px;
+    background-size: cover;
+    bottom:-30%;
+    left:-20%;
+    display: none;
+}
+
+.phone-four{
+    position: absolute;
+    background-image: url("../../assets/Home/phone-four.png");
+    width: 686px;
+    height: 686px;
+    background-size: cover;
+    bottom:-30%;
+    right:-20%;
+    display: none;
+}
+
+.sellify-nav-logo{
+    left:-35%;
+    position:absolute;
+    height: 60px;
+    width: 200px;
+    background-image: url("../../assets/Home/selligo-logo-purple.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.sellify-nav-logo-2{
+    left:-35%;
+    position:absolute;
+    height: 60px;
+    width: 200px;
+    background-image: url("../../assets/Home/sellify-logoo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+.Home-main-nav{
+    position: absolute;
+    width: 800px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+    padding-top: 34px;
+    position: relative;
+}
+
+.Home-main-nav-items{
+    color: #181818;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.36px;   
+    cursor: pointer; 
+}
+
+.Home-menu-icon{
+    display: none;
+    position: fixed;
+    top:15px;
+    left:2%;
+    cursor: pointer;
+    background-color: #FFF;
+    border: none;
+    padding: 5px;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.Home-main-nav-sub-container{
+    height: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    right: -40%;
+    width: 200px;
+}
+
+.Home-main-nav-sub-container-search-icon{
+    transition:0.2s ease-in-out all;
+}
+
+
+.Home-main-nav-sub-container-search-icon:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.Home-main-nav-sub-container-line{
+    height: 100%;
+    width: 1px;
+    background-color: white;
+}
+
+
+
+.Home-main-nav-sub-container-login-btn{
+    background-color: black;
+    color:white;
+    padding: 12px 24px;
+    border: none;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.36px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out all;
+}
+
+.account-circle-icon{
+    cursor: pointer;
+}
+
+.Home-main-nav-sub-container-login-btn:hover{
+    background-color: white;
+    color:black;
+}
+
+.Home-main-heading{
+    color: #FFF;
+    color:#181818;
+    text-align: center;
+    font-family: Oxygen;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.Home-main-heading-mt{
+    margin-top: 200px;
+}
+
+.Home-main-description{
+    margin-top: 19px;
+    color: #FFF;
+    color:#181818;
+    font-family: Oxygen;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.Home-main-option-container{
+    margin-top: 48px;
+    width: 674px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: rgba(24, 24, 24, 0.45);
+    box-shadow: 10px 8px 38px 0px rgba(0, 0, 0, 0.10), -8px -9px 28px 0px rgba(0, 0, 0, 0.10);
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 48px;
+    z-index: 2;
+}
+
+.Home-main-option{
+    height:100%;
+    width: 100%;
+    background-color:transparent;
+    color: #FFF;
+    color:#181818;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s all ease-in-out;
+    z-index: 2;
+    text-decoration: none;
+    border: none;
+}
+
+.Home-main-option:hover{
+    cursor: pointer;
+    background-color: #181818;
+    color:white;
+}
+
+.Home-main-option-line{
+    height: 100%;
+    width: 2px;
+    background-color: white;
+}
+
+.Home-main-responsive-menu{
+    margin-left: 10px;
+    position: fixed;
+    height:100vh;
+    width: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    display: none;
+    z-index: 5;
+    border: 1px solid black;
+    transition: 0.3s ease-in-out all;
+}
+
+.home-nav-animation{
+    animation-name:home-nav-animation;
+    animation-duration: 0.1s;
+    animation-timing-function: ease-in-out;
+}
+
+.home-nav-heading{
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-image: url("../../assets/Home/sellify-logoo.png");
+    height: 70px;
+    width: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center ;
+}
+
+@keyframes home-nav-animation{
+    0%{
+        transform: translateX(-300px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+.home-main-responsive-item{
+    background-color: #181818;
+    color:white;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    font-size: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.home-banner{
+    margin: 0 auto;
+    height: 180px;
+    width: 100%;
+    display: none;
+    margin-top: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sell-your-phone{
+    position: relative;
+    padding-bottom: 0px;
+}
+
+.sell-your-phone-options{
+    font-family: 'Poppins', sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    position: absolute;
+    left:-190px;
+    bottom: -280px;
+    width: 650px;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    z-index: 3;
+    cursor: default;
+
+}
+
+.sell-your-phone-options-item{
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    width: 150px;
+    text-align: center;
+    transition: 0.2s all ease-in-out;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.sell-your-phone-options-item:hover{
+    font-size: 20px;
+}
+
+
+
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .Home-main-nav{
+        width: 750px;
+    }
+    .Home-main-nav-items{
+        font-size: 16px;
+    }
+    .Home-main-nav-sub-container-login-btn{
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .Home-main-nav-sub-container{
+        right: -40%;
+        width: 180px;
+    }
+    .Home-main-heading{
+        font-size: 62px;
+    }
+    .Home-main-heading-mt{
+        margin-top: 180px;
+    }
+    .Home-main-description{
+        font-size: 24px;
+    }
+    .Home-main-option-container{
+        width: 550px;
+        height: 50px;
+    }
+    .Home-main-option{
+        font-size: 16px;  
+    }
+    .phone-one{
+        width: 500px;
+        height: 500px;
+        top:-30%;
+        left:-15%;
+        display: none;
+    }
+    
+    .phone-two{
+        width: 500px;
+        height: 500px;
+        top:-30%;
+        right:-15%;
+        display: none;
+    }
+    
+    .phone-three{
+        width: 500px;
+        height: 500px;
+        bottom:-30%;
+        left:-15%;
+        display: none;
+    }
+    
+    .phone-four{
+        width: 500px;
+        height: 500px;
+        bottom:-30%;
+        right:-15%;
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+    .Home-main-nav{
+        width: 650px;
+    }
+    .Home-main-nav-items {
+      font-size: 14px; 
+    }
+    .Home-main-nav-sub-container-login-btn {
+      padding: 8px 18px;
+      font-size: 12px; 
+    }
+    .Home-main-nav-sub-container{
+        right: -30%;
+        width: 150px;
+    }
+    .Home-main-heading {
+      font-size: 48px;
+    }
+    .Home-main-heading-mt{
+        margin-top: 150px;
+    }
+    .Home-main-description {
+      font-size: 20px; 
+    }
+    .Home-main-option-container{
+        width: 550px;
+        height: 40px;
+    }
+    .Home-main-option {
+      font-size: 14px; 
+  }
+  .phone-one{
+    width: 500px;
+    height:500px;
+    top:-30%;
+    left:-15%;
+}
+
+.phone-two{
+    width: 500px;
+    height: 500px;
+    top:-30%;
+    right:-15%;
+}
+
+.phone-three{
+    width: 500px;
+    height: 500px;
+    bottom:-30%;
+    left:-15%;
+}
+
+.phone-four{
+    width: 500px;
+    height: 500px;
+    bottom:-30%;
+    right:-15%;
+}
+   
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    .location-mobile{
+        position: absolute;
+        left:-100%;
+        top:25%;
+         color:white;
+         display: block;
+
+         font-size: 12px;
+     }
+.Home-main-nav{
+        width: 600px;
+    }
+    .Home-main-nav-items {
+      font-size: 12px; 
+    }
+    .Home-main-nav-sub-container-login-btn {
+      padding: 6px 14px;
+      font-size: 10px; 
+    }
+    .Home-main-nav-sub-container{
+        right: -30%;
+        width: 100px;
+    }
+    .sellify-nav-logo{
+        display:none;
+    }
+    .sellify-nav-logo-2{
+        display: none;
+    }
+    .Home-main-nav{
+        justify-content: flex-start;
+        width:60%;
+    }
+    .Home-main-nav-items {
+        display: none;
+      font-size: 12px; 
+    }
+    .Home-menu-icon{
+        display: block;
+    }
+    .Home-main-responsive-menu{
+        margin-left: 0px;
+        position: fixed;
+        top:0;
+        height: 100vh;
+        width: 180px;
+        background-color:black;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+        display: block;
+    }
+    .Home-main-heading {
+      font-size: 36px;
+    }
+    .Home-main-description {
+      font-size: 18px; 
+    }
+    .Home-main-option-container{
+        width: 440px;
+        height: 40px;
+    }
+    .Home-main-option {
+      font-size: 14px; 
+  }
+  .phone-one{
+    /* display: none; */
+    width: 300px;
+    height:300px;
+    top:-20%;
+    left:-15%;
+    }
+
+    .phone-two{
+        width: 300px;
+        height:300px;
+        top:-20%;
+        right:-15%;
+    }
+
+    .phone-three{
+        width: 300px;
+        height: 300px;
+        bottom:-30%;
+        left:-15%;
+    }
+
+    .phone-four{
+        width: 300px;
+        height: 300px;
+        bottom:-30%;
+        right:-15%;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    .Home-section{
+        background-image: url("../../assets/Home/mobile-bg.jpeg");
+
+    }
+    .sellify-nav-logo-2{
+        display: none;
+    }
+    .location-mobile{
+        position: absolute;
+        left:-100%;
+        top:25%;
+         color:white;
+         display: block;
+
+         font-size: 12px;
+     }
+
+    .sellify-nav-logo{
+        display:none;
+    }
+    .Home-main-nav{
+        justify-content: flex-start;
+        width:60%;
+    }
+    .Home-main-nav-items {
+        display: none;
+      font-size: 12px; 
+    }
+    .Home-menu-icon{
+        display: block;
+    }
+    .Home-main-responsive-menu{
+        margin-left: 0px;
+        position: fixed;
+        top:0;
+        height: 100vh;
+        width: 180px;
+        background-color:black;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+        display: block;
+    }
+    .Home-main-nav-sub-container-login-btn {
+      padding: 6px 14px;
+      font-size: 10px; 
+    }
+    .Home-main-nav-sub-container{
+        right: -40%;
+        width: 100px;
+    }
+    .Home-main-heading {
+      font-size: 28px;
+      color: #FFF;
+    }
+    .Home-main-description {
+      font-size: 14px; 
+      color: #FFF;
+    }
+    .Home-main-option-container{
+        width: 400px;
+        height: 40px;
+    }
+    .Home-main-option {
+      font-size: 14px; 
+      color: #FFF;
+  }
+  .phone-one{
+    /* display: none; */
+    width: 200px;
+    height:200px;
+    top:-10%;
+    left:-15%;
+    display: block;
+    }
+
+    .phone-two{
+        width: 200px;
+        height:200px;
+        top:-10%;
+        right:-15%;
+        display: block;
+    }
+
+    .phone-three{
+        width: 200px;
+        height: 200px;
+        bottom:-10%;
+        left:-15%;
+        display: block;
+    }
+
+    .phone-four{
+        width: 200px;
+        height: 200px;
+        bottom:-10%;
+        right:-15%;
+        display: block;
+    }
+
+}
+
+@media(max-width:500px){
+    .Home-main-heading-mt{
+        margin-top: 20px;
+    }
+    
+    .home-banner{
+        display: flex;
+        margin: 0 auto;
+        height: 30vh;
+        width: 100%;
+        display: block;
+        margin-top: 70px;
+        background-size: contain;
+        background-position: center center;
+        transition: 0.2s all ease-in-out;
+    }
+  
+    .Home-main-option-container{
+        width: 80%;
+    }
+    .Home-main-heading {
+        font-size: 24px;
+      }
+      .Home-main-description {
+        font-size: 13px; 
+      }
+      .Home-main-option {
+        font-size: 12px; 
+    }
+}
+
+@media(min-width:1921px){
+    .Home-section{
+        height: 100vh;
+        width: 1920px;
+        margin: 0 auto;
+    }
+}
+
+
+@media(max-width:270px){
+    .home-banner{
+        display: flex;
+        margin: 0 auto;
+        height: 20vh;
+        width: 90%;
+        display: block;
+        margin-top: 70px;
+        background-size: contain;
+        background-position: center center;
+    }
+}
+
+.modal-city{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .modal-city.modal-city-open {
+    display: flex;
+  }
+  
+  .modal-city-content {
+    background: #fff;
+    padding: 50px 20px;
+    border-radius: 30px;
+    text-align: center;
+  }
+
+  .modal-city-content > h2{
+    font-size: 20px;
+  }
+  
+  .modal-city-content select {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .modal-city-content button{
+    background: #9747FF;
+    padding: 10px 20px;
+    color:white;
+    border: none;
+    margin: 10px;
+    border-radius: 10px;
+  }
+
+
+  .modal-city-content button:hover{
+    background-color: white;
+    color:black;
+    border: 1px solid black;
+  }
+
+  @media(max-width:350px){
+    .modal-city-content {
+      background: #fff;
+      padding: 50px 10px;
+      border-radius: 30px;
+      text-align: center;
+      width: 90%;
+    }
+    .modal-city-content h2{
+      font-size: 18px;
+    }
+    
+  }

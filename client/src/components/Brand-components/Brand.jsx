@@ -44,6 +44,7 @@ const Brand = () => {
               );
             });
         } catch (err) {
+          navigate("/home");
           setLoading(false);
           toast.info(err.response.data.error);
         }

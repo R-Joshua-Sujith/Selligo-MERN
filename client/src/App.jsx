@@ -1,10 +1,11 @@
 import "./App.css";
+import React, { lazy, Suspense } from "react";
 import Best_Selling from "./components/Home-components/Best_Selling";
 import Home from "./components/Home-components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./components/Product_components/Product";
 import SingleProduct from "./components/Product_components/SingleProduct";
-import HomePage from "./components/Home-components/HomePage";
+const HomePage = lazy(() => import("./components/Home-components/HomePage"));
 import Section1 from "./components/Question-components/Section1";
 import Section2 from "./components/Question-components/Section2";
 import Section3 from "./components/Question-components/Section3";
@@ -33,13 +34,27 @@ import BlogsPage from "./components/Home-components/BlogsPage";
 import ProductTemplate from "./components/Product_components/ProductTemplate";
 import SectionTemplate from "./components/Question-components/SectionTemplate";
 import Thankyou from "./components/Product_components/Thankyou";
-
+import Template from "./components/repeatable-components/Template";
 function App() {
   const userStatus = useSelector((state) => state.user);
   console.log(userStatus);
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+          path="/"
+          element={
+            <Suspense
+              fallback={
+                <div>
+                  <Template />
+                </div>
+              }
+            >
+              <HomePage />
+            </Suspense>
+          }
+        ></Route>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/:categoryType" element={<BrandPage />}></Route>
         <Route path="/:type/:brand" element={<ProductPage />}></Route>

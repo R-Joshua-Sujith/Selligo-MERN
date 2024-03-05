@@ -1,0 +1,41 @@
+.Template-Container{
+    height: 100vh;
+    background-color: #9747FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    color: #fff;
+}
+
+.entry-loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    transform:rotate(45deg);
+    background: #9747FF;
+    border: 1px solid white;
+  }
+  .entry-loader::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border:24px solid white;
+    animation: prixClipFix 2s infinite linear;
+  }
+
+  @keyframes prixClipFix {
+      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+  }
+
+  .entry-loader-heading{
+    width:200px;
+  }
+
