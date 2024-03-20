@@ -68,7 +68,7 @@ const Home = () => {
   // }, []);
 
   useEffect(() => {
-    localStorage.removeItem("storage");
+    // localStorage.removeItem("storage");
     const getCategoryData = async () => {
       const storedData = sessionStorage.getItem("categoryData");
       if (storedData) {
